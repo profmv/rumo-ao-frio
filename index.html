@@ -1,0 +1,2376 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Argentina Rumo ao Frio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Layout: caderno de expedição em coluna única de 1120px; a página esfria de cima para baixo, medida por um termômetro de rolagem (29 °C em Buenos Aires até 4,7 °C em Ushuaia). */
+:root{
+  --bg:#EEF2F2; --surface:#FAFCFC; --surface-2:#E2EAEB; --ink:#10222A; --ink-2:#3B5058; --muted:#566A71; --line:#CDD9DB;
+  --lake:#1B6A86; --lake-soft:#D3E6EC; --glacier:#8FC3D2; --pine:#2D5C4E; --heat:#B0532A; --heat-soft:#F4E2D7;
+  --good:#1D7539; --good-soft:#DCEFE2;
+  --snow:27,106,134;
+  --s1:#1F6F9E; --s2:#C9822B; --s3:#2F8F6B; --s4:#6B5BB8; --s5:#B5577A;
+  --shadow:0 1px 2px rgba(16,34,42,.06), 0 10px 28px rgba(16,34,42,.07);
+  --f-display:"Bodoni Moda","Bodoni 72",Didot,Georgia,serif;
+  --f-body:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --spring:cubic-bezier(.22,1.3,.36,1); --spring-ms:520ms;
+  --soft:cubic-bezier(.25,1.12,.4,1); --soft-ms:720ms;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A1418; --surface:#101E24; --surface-2:#172A31; --ink:#E3EDEF; --ink-2:#B3C5CA; --muted:#8CA0A7; --line:#24383F;
+    --lake:#5AB0CC; --lake-soft:#15333D; --glacier:#9FD3E2; --pine:#7DB8A2; --heat:#E5916A; --heat-soft:#3A2419;
+    --good:#5CC985; --good-soft:#163323;
+    --snow:220,238,242;
+    --s1:#3A88BC; --s2:#BF8236; --s3:#36946F; --s4:#8576D2; --s5:#C66688;
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 12px 32px rgba(0,0,0,.3);
+    color-scheme:dark;
+  }
+  :root:not([data-theme="light"]) .i-moon{display:none}
+  :root:not([data-theme="light"]) .i-sun{display:block}
+}
+:root[data-theme="dark"]{
+  --bg:#0A1418; --surface:#101E24; --surface-2:#172A31; --ink:#E3EDEF; --ink-2:#B3C5CA; --muted:#8CA0A7; --line:#24383F;
+  --lake:#5AB0CC; --lake-soft:#15333D; --glacier:#9FD3E2; --pine:#7DB8A2; --heat:#E5916A; --heat-soft:#3A2419;
+  --good:#5CC985; --good-soft:#163323;
+  --snow:220,238,242;
+  --s1:#3A88BC; --s2:#BF8236; --s3:#36946F; --s4:#8576D2; --s5:#C66688;
+  --shadow:0 1px 2px rgba(0,0,0,.35), 0 12px 32px rgba(0,0,0,.3);
+  color-scheme:dark;
+}
+:root[data-theme="dark"] .i-moon{display:none}
+:root[data-theme="dark"] .i-sun{display:block}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+h1,h2,h3,h4{margin:0;text-wrap:balance;font-weight:600}
+p{margin:0}
+a{color:var(--lake)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--lake);outline-offset:2px;border-radius:6px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.mono{font-family:var(--f-mono)}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+
+/* ---------- topo ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in oklab,var(--bg) 84%,transparent);backdrop-filter:saturate(1.3) blur(14px);-webkit-backdrop-filter:saturate(1.3) blur(14px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:14px;height:60px}
+.brand{font-family:var(--f-display);font-style:italic;font-weight:600;font-size:1.3rem;color:var(--ink);text-decoration:none;white-space:nowrap;letter-spacing:-.01em}
+.nav{flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;mask-image:linear-gradient(90deg,transparent 0,#000 14px,#000 calc(100% - 14px),transparent 100%)}
+.nav::-webkit-scrollbar{display:none}
+.nav-track{position:relative;display:flex;gap:2px;width:max-content;padding:4px 14px}
+.nav-a{position:relative;z-index:1;padding:6px 12px;border-radius:999px;font-size:.875rem;font-weight:500;color:var(--ink-2);text-decoration:none;white-space:nowrap;transition:color .25s}
+.nav-a:hover{color:var(--ink)}
+.nav-a.is-active{color:var(--lake)}
+.hl-host{position:relative}
+.hl-pill{position:absolute;top:0;left:0;z-index:0;border-radius:999px;background:var(--lake-soft);pointer-events:none;opacity:0;transition:transform var(--spring-ms) var(--spring),width var(--spring-ms) var(--spring),height var(--spring-ms) var(--spring),opacity .2s ease}
+.icon-btn{flex:none;width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);display:grid;place-items:center;cursor:pointer;transition:transform .4s var(--spring)}
+.icon-btn:hover{transform:rotate(-14deg)}
+.i-sun{display:none}
+.progress{height:3px}
+#progress-bar{display:block;height:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--lake)}
+
+/* ---------- termômetro de rolagem ---------- */
+.thermo{position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;align-items:center;gap:10px;width:58px}
+@media (min-width:1300px){.thermo{display:flex}}
+.thermo-read{font-family:var(--f-mono);font-size:.82rem;font-weight:600;color:var(--ink);display:flex;align-items:flex-end;gap:2px;line-height:1}
+.thermo-tube{position:relative;width:12px;height:230px;border-radius:999px;background:var(--surface-2);border:1px solid var(--line);overflow:hidden}
+.thermo-fill{position:absolute;left:0;right:0;bottom:0;height:90%;background:var(--heat);border-radius:999px;transition:height .45s var(--soft)}
+.thermo-bulb{width:24px;height:24px;margin-top:-16px;border-radius:50%;background:var(--heat);border:3px solid var(--surface)}
+.thermo-scale{position:absolute;right:calc(50% + 14px);top:30px;height:230px;width:60px;pointer-events:none}
+.thermo-scale span{position:absolute;right:0;transform:translateY(50%);font:500 .66rem/1 var(--f-mono);color:var(--muted);white-space:nowrap}
+.thermo-cap{font:.66rem/1.3 var(--f-mono);color:var(--muted);text-align:center;width:72px}
+
+/* ---------- herói ---------- */
+.hero{padding-block:clamp(40px,7vw,84px) clamp(40px,6vw,64px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(24px,4vw,56px);align-items:center}
+.eyebrow{font-family:var(--f-mono);font-size:.74rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--lake);margin-bottom:14px}
+.hero-title{font-family:var(--f-display);font-weight:500;font-size:clamp(3.6rem,10.5vw,7.6rem);line-height:.9;letter-spacing:-.03em}
+.hero-title em{font-style:italic;font-weight:600;display:inline-block;padding-right:.08em}
+.ch{display:inline-block;white-space:pre}
+.grad{background:linear-gradient(100deg,var(--heat) 0%,var(--lake) 42%,var(--glacier) 68%,var(--lake) 100%);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:gradShift 10s ease-in-out infinite alternate}
+@keyframes gradShift{from{background-position:0% 50%}to{background-position:100% 50%}}
+.hero-lede{max-width:46ch;margin-top:22px;font-size:1.12rem;color:var(--ink-2)}
+.rotator{margin-top:16px;font-family:var(--f-mono);font-size:.9rem;color:var(--muted);display:flex;gap:.5em;flex-wrap:wrap}
+.rot{display:inline-block;color:var(--lake);font-weight:600}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.btn{position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .5s var(--spring),background-color .2s}
+.btn-primary{background:var(--ink);color:var(--bg)}
+.btn-ghost{background:var(--surface);color:var(--ink);border-color:var(--line)}
+.btn-sm{padding:8px 14px;font-size:.85rem}
+.ripple{position:absolute;border-radius:50%;background:currentColor;pointer-events:none;transform:scale(0)}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+.hero-thermo{position:relative;overflow:hidden;min-height:360px}
+#snow{position:absolute;inset:0;width:100%;height:100%;display:block}
+.ht-in{position:relative;z-index:1;padding:26px 26px 22px;display:flex;flex-direction:column;height:100%}
+.ht-label{font-family:var(--f-mono);font-size:.78rem;color:var(--ink-2);min-height:2.6em}
+.ht-num{font-family:var(--f-mono);font-size:clamp(4.2rem,9vw,6.4rem);font-weight:500;line-height:1;letter-spacing:-.05em;margin:8px 0 22px;display:flex;align-items:flex-start;transition:color .6s}
+.ht-unit{font-size:.32em;letter-spacing:0;margin:.18em 0 0 .12em;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{position:relative;z-index:1;font-size:.8rem;font-weight:500;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:color-mix(in oklab,var(--surface) 70%,transparent);color:var(--ink-2);cursor:pointer;transition:color .2s,border-color .2s}
+.chip[aria-checked="true"],.chip[aria-pressed="true"]{color:var(--ink);border-color:transparent}
+.chips .hl-pill{background:var(--lake-soft);box-shadow:inset 0 0 0 1px var(--lake)}
+.ht-foot{margin-top:auto;padding-top:18px;font-size:.78rem;color:var(--muted)}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:44px}
+.stat{background:var(--surface);padding:18px 20px 20px}
+.stat-k{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stat-v{font-family:var(--f-display);font-weight:600;font-size:clamp(1.7rem,3vw,2.25rem);line-height:1.1;margin:.4rem 0 .25rem;font-variant-numeric:lining-nums}
+.stat-n{font-size:.875rem;color:var(--ink-2)}
+.stat-heat .stat-v{color:var(--heat)}
+.alert-pill{display:inline-flex;gap:10px;align-items:center;margin-top:20px;padding:8px 16px;border-radius:999px;background:var(--heat-soft);font-weight:600;font-size:.9rem}
+.pulse{flex:none;width:8px;height:8px;border-radius:50%;background:var(--heat);animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in oklab,var(--heat) 60%,transparent)}100%{box-shadow:0 0 0 10px transparent}}
+.shimmer{background:linear-gradient(90deg,var(--heat) 0%,var(--heat) 40%,var(--ink) 50%,var(--heat) 60%,var(--heat) 100%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 3.6s linear infinite}
+@keyframes shimmer{from{background-position:100% 0}to{background-position:-150% 0}}
+
+/* ---------- seções ---------- */
+.sec{padding-block:clamp(56px,8vw,104px);border-top:1px solid var(--line)}
+.sec-head{max-width:780px}
+.sec h2{font-family:var(--f-display);font-weight:500;font-size:clamp(2.1rem,4.4vw,3.1rem);line-height:1.04;letter-spacing:-.015em}
+.sec h2 em{font-style:italic}
+.lede{max-width:64ch;margin-top:14px;color:var(--ink-2);font-size:1.05rem}
+.sub{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:500}
+.note{font-size:.85rem;color:var(--muted)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3vw,36px)}
+.cols3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,32px)}
+.blist{margin:0;padding-left:1.1em;display:grid;gap:8px;color:var(--ink-2)}
+.blist li::marker{color:var(--lake)}
+.blist strong{color:var(--ink)}
+.tag{display:inline-flex;align-items:center;gap:6px;font:500 .72rem var(--f-mono);padding:3px 8px;border-radius:999px;background:var(--surface-2);color:var(--ink-2);white-space:nowrap}
+.tag.priv{background:var(--good-soft);color:var(--good)}
+.tag.conf{background:var(--lake-soft);color:var(--lake)}
+.tag.heat{background:var(--heat-soft);color:var(--heat)}
+
+/* veredito */
+.verdict{list-style:none;padding:0;margin:32px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 24px}
+.verdict li{position:relative;z-index:1;padding:14px 16px;border-radius:12px;color:var(--ink-2)}
+.verdict li strong{color:var(--ink)}
+.verdict .hl-pill{border-radius:12px;background:var(--surface);box-shadow:var(--shadow)}
+.mark{background-image:linear-gradient(transparent 60%,var(--lake-soft) 60%);background-repeat:no-repeat;background-size:100% 100%}
+
+/* simulador */
+.sim{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);margin-top:32px;overflow:clip}
+.sim-controls{padding:24px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:22px;background:color-mix(in oklab,var(--surface-2) 45%,var(--surface))}
+.sim-out{padding:clamp(20px,3vw,32px);min-width:0;position:sticky;top:76px;align-self:start}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{padding:0}
+.ctl-label{display:block;font-family:var(--f-mono);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.seg{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:4px;padding:4px;background:var(--bg);border:1px solid var(--line);border-radius:12px}
+.seg button{position:relative;z-index:1;border:0;background:transparent;padding:8px 6px;border-radius:9px;font-weight:600;font-size:.9rem;color:var(--ink-2);cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.2;transition:color .2s}
+.seg button small{font:400 .7rem var(--f-mono);color:var(--muted);margin-top:3px}
+.seg button[aria-checked="true"]{color:var(--ink)}
+.seg .hl-pill{border-radius:9px;background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.1),0 0 0 1px var(--line)}
+.seg.grid2{grid-auto-flow:row;grid-template-columns:1fr 1fr}
+.seg button:disabled{opacity:.38;cursor:not-allowed}
+.ctl-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ctl-pair .ctl-label{margin-bottom:6px;font-size:.64rem}
+.presets .chip{display:inline-flex;flex-direction:column;align-items:flex-start;line-height:1.25;text-align:left}
+.presets .chip small{font:400 .68rem var(--f-mono);color:var(--muted)}
+.presets .chip[aria-pressed="true"]{background:var(--lake-soft);border-color:var(--lake);color:var(--ink)}
+.chain{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 2px;font-size:.84rem}
+.chain .stop{display:inline-flex;flex-direction:column;padding:5px 10px;border-radius:10px;background:var(--surface-2);line-height:1.2}
+.chain .stop b{font-weight:600;color:var(--ink)}
+.chain .stop small{font:400 .66rem var(--f-mono);color:var(--muted)}
+.chain .stop.frio{background:var(--lake-soft)}
+.chain .stop.calor{background:var(--heat-soft)}
+.chain .stop.morno{background:color-mix(in oklab,var(--pine) 16%,var(--surface))}
+.chain .leg{font:400 .68rem var(--f-mono);color:var(--muted);padding:0 3px;white-space:nowrap}
+.chain .leg.long{color:var(--heat);font-weight:600}
+.sim-hours{font:400 .76rem var(--f-mono);color:var(--muted);margin:10px 0 0}
+.sim-hours strong{color:var(--heat)}
+.tag.morno{background:color-mix(in oklab,var(--pine) 16%,var(--surface));color:var(--pine)}
+.sw-row{display:flex;gap:12px;align-items:flex-start}
+.sw-row label{font-size:.92rem;font-weight:500;cursor:pointer;line-height:1.35}
+.sw-row label small{display:block;font-weight:400;font-size:.8rem;color:var(--muted);margin-top:2px}
+.switch{flex:none;position:relative;width:44px;height:26px;border-radius:999px;border:0;background:var(--line);cursor:pointer;padding:0;transition:background-color .25s}
+.switch .thumb{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:999px;background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.3);transition:transform var(--spring-ms) var(--spring),width .2s ease}
+.switch[aria-checked="true"]{background:var(--lake)}
+.switch[aria-checked="true"] .thumb{transform:translateX(18px)}
+.switch:active:not(:disabled) .thumb{width:24px}
+.switch[aria-checked="true"]:active:not(:disabled) .thumb{transform:translateX(14px)}
+.switch:disabled{opacity:.4;cursor:not-allowed}
+.switch:disabled + label{opacity:.55;cursor:not-allowed}
+.range-row{display:flex;justify-content:space-between;align-items:baseline}
+.range-row output{font:600 1rem var(--f-mono)}
+input[type="range"]{width:100%;accent-color:var(--lake);margin:6px 0 0}
+.out-k{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.out-total{font-family:var(--f-display);font-weight:600;font-size:clamp(3rem,7vw,4.6rem);line-height:1;margin:.3rem 0 .4rem;display:flex;align-items:flex-end;gap:.18em;font-variant-numeric:tabular-nums lining-nums}
+.out-total .cur{font-size:.42em;margin-bottom:.12em;color:var(--muted);font-weight:500}
+.out-range{font-size:.9rem;color:var(--ink-2)}
+.vchip{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:7px 14px;border-radius:999px;font-weight:600;font-size:.9rem}
+.vchip svg{flex:none}
+.vchip.ok{background:var(--good-soft);color:var(--good)}
+.vchip.warn{background:var(--lake-soft);color:var(--lake)}
+.vchip.over{background:var(--heat-soft);color:var(--heat)}
+.bar-wrap{position:relative;margin-top:30px;padding-top:24px}
+.bar{position:relative;height:42px;border-radius:6px;background:var(--surface-2);overflow:hidden}
+.bseg{position:absolute;top:0;bottom:0;left:0;width:0;transition:left var(--soft-ms) var(--soft),width var(--soft-ms) var(--soft);box-shadow:inset -2px 0 0 var(--surface);cursor:default}
+.ceil{position:absolute;top:0;bottom:-8px;left:57%;width:0;border-left:2px dashed var(--ink);transition:left var(--spring-ms) var(--spring);pointer-events:none}
+.ceil span{position:absolute;top:0;left:0;transform:translateX(-50%);font:600 .72rem var(--f-mono);white-space:nowrap;background:var(--surface);padding:0 5px;color:var(--ink)}
+.axis{position:relative;height:18px;margin-top:10px;font:.68rem var(--f-mono);color:var(--muted)}
+.axis span{position:absolute;top:0;transform:translateX(-50%);white-space:nowrap}
+.axis span:first-child{transform:none}
+.axis span:last-child{transform:translateX(-100%)}
+.legend{list-style:none;padding:0;margin:20px 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px 20px}
+.legend li{display:flex;align-items:center;gap:8px;font-size:.875rem;transition:opacity .3s}
+.legend li.zero{opacity:.4}
+.sw{display:inline-block;width:10px;height:10px;border-radius:3px;flex:none}
+.legend .lv{margin-left:auto;font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--ink)}
+.sim-note{margin-top:18px;padding:12px 14px;border-radius:10px;background:var(--surface-2);font-size:.88rem;color:var(--ink-2)}
+.items{width:100%;border-collapse:collapse;font-size:.88rem}
+.items td{padding:8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.items td:first-child{padding-right:12px;color:var(--ink-2)}
+.items td .sw{margin-right:8px;transform:translateY(1px)}
+.items td.num{text-align:right;white-space:nowrap}
+.items tr.tot td{font-weight:700;color:var(--ink);border-bottom:0}
+
+/* acordeão */
+.acc{border-top:1px solid var(--line)}
+.acc-item{border-bottom:1px solid var(--line)}
+.acc-btn{width:100%;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:16px 4px;background:none;border:0;font-weight:600;font-size:1rem;color:var(--ink);cursor:pointer;text-align:left}
+.acc-btn .chev{flex:none;transition:transform var(--spring-ms) var(--spring);color:var(--muted)}
+.acc-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.acc-panel{overflow:hidden}
+.acc-body{padding:0 4px 18px;color:var(--ink-2)}
+
+/* escola */
+.facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 18px;margin:0}
+.facts dt{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.facts dd{margin:0}
+.counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:22px}
+.count{padding:14px 14px 12px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.count b{display:block;font:500 2.1rem/1 var(--f-mono);letter-spacing:-.03em}
+.count span{display:block;margin-top:6px;font-size:.8rem;color:var(--ink-2);line-height:1.3}
+.count.hot b{color:var(--heat)}
+.tabs{position:relative;display:flex;gap:2px;border-bottom:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs .hl-pill{border-radius:2px;background:var(--lake)}
+.tab{position:relative;z-index:1;background:none;border:0;padding:10px 14px;font-weight:600;font-size:.92rem;color:var(--muted);cursor:pointer;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--ink)}
+.tabpanel{padding:16px 2px 4px;color:var(--ink-2)}
+.letter-wrap{position:relative;margin-top:28px}
+.letter{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:56px 22px 22px;font-family:var(--f-mono);font-size:.84rem;line-height:1.7;white-space:pre-wrap;color:var(--ink);box-shadow:var(--shadow);overflow-wrap:anywhere}
+.letter-bar{position:absolute;top:12px;left:16px;right:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.letter-bar .tag{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.letter-bar .copy-btn{flex-shrink:0}
+.copy-btn{display:inline-flex;align-items:center;gap:8px}
+.copy-btn .ic{position:relative;width:16px;height:16px}
+.copy-btn .ic svg{position:absolute;inset:0;transition:transform .45s var(--spring),opacity .2s}
+.copy-btn .ic .i-ok{transform:scale(0);opacity:0}
+.copy-btn.done .ic .i-copy{transform:scale(0) rotate(-40deg);opacity:0}
+.copy-btn.done .ic .i-ok{transform:none;opacity:1}
+
+/* roteiro */
+.route{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(20px,3vw,36px);margin-top:30px;align-items:start}
+.map{padding:14px}
+.map svg{display:block;width:100%;height:auto}
+.mp-lat{stroke:var(--line);stroke-width:1}
+.mp-latl{fill:var(--muted);font:12px var(--f-mono)}
+.rt{fill:none;stroke:var(--line);stroke-width:2.5;stroke-dasharray:3 7;stroke-linecap:round;transition:stroke .3s}
+.rt.on{stroke:var(--lake);stroke-width:3;stroke-dasharray:none}
+.mp-node{fill:var(--surface);stroke:var(--ink);stroke-width:2;transition:fill .3s}
+.mp-node.on{fill:var(--lake);stroke:var(--lake)}
+.mp-label{fill:var(--ink);font:600 17px var(--f-body)}
+.mp-sub{fill:var(--muted);font:13px var(--f-mono)}
+.mk-dot{fill:var(--heat);stroke:var(--surface);stroke-width:2.5}
+.mk-halo{fill:var(--heat);opacity:.22;transform-box:fill-box;transform-origin:center;animation:halo 2.2s ease-out infinite}
+@keyframes halo{0%{transform:scale(.6);opacity:.35}100%{transform:scale(1.8);opacity:0}}
+.map-cap{margin-top:8px;font-size:.78rem;color:var(--muted);padding-inline:4px}
+.days{position:relative;display:flex;gap:4px;overflow-x:auto;padding:4px;background:var(--surface-2);border-radius:14px;scrollbar-width:none}
+.days::-webkit-scrollbar{display:none}
+.days .hl-pill{border-radius:10px;background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.day{position:relative;z-index:1;flex:1 0 62px;border:0;background:none;border-radius:10px;padding:8px 4px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;color:var(--ink-2)}
+.day small{font:500 .66rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase}
+.day b{font:500 1.35rem/1 var(--f-display)}
+.day i{width:7px;height:7px;border-radius:50%;margin-top:3px}
+.day[aria-selected="true"]{color:var(--ink)}
+.day-nav{display:flex;justify-content:space-between;align-items:center;margin-top:12px;gap:8px}
+.day-panel{margin-top:14px;overflow:hidden}
+.dp{padding:22px}
+.dp-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.dp h3{font-family:var(--f-display);font-weight:500;font-size:1.65rem;line-height:1.1}
+.dp-loc{font:500 .78rem var(--f-mono);color:var(--muted);margin-top:4px}
+.dp-steps{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px}
+.dp-steps li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:12px;align-items:start}
+.dp-steps li::before{content:"";width:8px;height:8px;border-radius:50%;border:2px solid var(--lake);margin-top:8px}
+.dp-note{margin-top:16px;padding:10px 12px;border-radius:10px;background:var(--surface-2);font-size:.88rem;color:var(--ink-2)}
+.dp-b{margin-top:14px}
+.dp-bbox{margin-top:10px;padding:12px 14px;border-radius:10px;border:1px dashed var(--lake);color:var(--ink-2);font-size:.9rem}
+
+/* clima */
+.tchart{margin-top:8px}
+.tc-legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.85rem;color:var(--ink-2);margin-bottom:8px}
+.tc-legend span{display:inline-flex;align-items:center;gap:7px}
+.tc-legend i{width:11px;height:11px;border-radius:50%;display:inline-block}
+.tc-row{display:grid;grid-template-columns:minmax(96px,150px) minmax(0,1fr);align-items:center;gap:14px;padding:9px 0;border-bottom:1px solid var(--line);cursor:default}
+.tc-name{font-weight:600;font-size:.92rem;line-height:1.25}
+.tc-name small{display:block;font:400 .72rem var(--f-mono);color:var(--muted)}
+.tc-row.alt .tc-name{font-weight:500;color:var(--ink-2)}
+.tc-track{position:relative;height:30px;margin-inline:44px 58px;background-image:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px calc(100% / 7));background-size:calc(100% + 1px) 100%}
+.tc-range{position:absolute;top:50%;height:4px;transform:translateY(-50%);border-radius:2px;background:linear-gradient(90deg,var(--lake),var(--heat));transform-origin:center}
+.tc-dot{position:absolute;top:50%;width:13px;height:13px;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 2px var(--surface)}
+.tc-dot.min{background:var(--lake)}
+.tc-dot.max{background:var(--heat)}
+.tc-val{position:absolute;top:50%;transform:translateY(-50%);font:500 .74rem var(--f-mono);white-space:nowrap;color:var(--ink)}
+.tc-axis{display:grid;grid-template-columns:minmax(96px,150px) minmax(0,1fr);gap:14px;padding-top:6px}
+.tc-ticks{position:relative;height:16px;margin-inline:44px 58px;font:.68rem var(--f-mono);color:var(--muted)}
+.tc-ticks span{position:absolute;transform:translateX(-50%)}
+.rings{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ring{display:flex;gap:14px;align-items:center;padding:16px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.ring svg{flex:none}
+.ring .rbg{fill:none;stroke:var(--surface-2);stroke-width:8}
+.ring .rfg{fill:none;stroke:var(--heat);stroke-width:8;stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%}
+.ring b{display:block;font:600 1.6rem/1 var(--f-mono)}
+.ring span{font-size:.82rem;color:var(--ink-2);line-height:1.35;display:block;margin-top:4px}
+
+/* destino */
+.prio{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px}
+.prio .chip[aria-pressed="true"]{background:var(--lake-soft);border-color:var(--lake);color:var(--lake)}
+.score{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.sc{padding:16px 18px;border-radius:12px;border:1px solid var(--line);background:var(--surface);transition:border-color .3s,box-shadow .3s}
+.sc.lead{border-color:var(--lake);box-shadow:0 0 0 1px var(--lake)}
+.sc-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.sc h3{font-family:var(--f-display);font-weight:500;font-size:1.5rem}
+.sc .pts{font:600 1.5rem var(--f-mono)}
+.sc-bar{height:6px;border-radius:3px;background:var(--surface-2);margin-top:10px;overflow:hidden}
+.sc-bar span{display:block;height:100%;width:0;background:var(--lake);border-radius:3px;transition:width var(--soft-ms) var(--soft)}
+.cmp-verdict{margin-top:14px;font-weight:600}
+.cmp{margin-top:22px;border-top:1px solid var(--line)}
+.cmp-row{display:grid;grid-template-columns:minmax(140px,.7fr) minmax(0,1fr) minmax(0,1fr);gap:4px 14px;padding:10px 0;border-bottom:1px solid var(--line);align-items:start}
+.cmp-row.head{font:500 .72rem var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-block:8px}
+.cmp-k{font-weight:600;font-size:.9rem}
+.cmp-c{font-size:.9rem;color:var(--ink-2);padding:6px 10px;margin:-6px 0;border-radius:8px;transition:background-color .35s,color .35s}
+.cmp-c.win{background:var(--lake-soft);color:var(--ink)}
+.cmp-c.win::before{content:"✓ ";color:var(--lake);font-weight:700}
+.drop{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+
+/* hospedagem */
+.h-ctl{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;justify-content:space-between;margin-top:26px}
+.h-ctl .seg{grid-auto-columns:auto}
+.h-ctl .seg button{padding:8px 14px}
+.h-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;margin-top:20px}
+.hotel{perspective:1100px}
+.tilt{transition:transform .6s var(--soft);transform-style:preserve-3d;height:100%}
+.flip{display:grid;height:100%;transition:transform .8s var(--soft);transform-style:preserve-3d}
+.flip.is-flipped{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow)}
+.face.back{transform:rotateY(180deg);background:color-mix(in oklab,var(--lake-soft) 40%,var(--surface))}
+.face h3{font-family:var(--f-display);font-weight:600;font-size:1.25rem;line-height:1.15}
+.face .htype{font-size:.86rem;color:var(--ink-2)}
+.face .hrow{display:flex;flex-wrap:wrap;gap:6px}
+.face .hprice{margin-top:auto;display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding-top:10px;border-top:1px solid var(--line)}
+.face .hprice b{font:600 1.05rem var(--f-mono)}
+.face .hprice small{font:.75rem var(--f-mono);color:var(--muted)}
+.flip-btn{align-self:flex-start;background:none;border:0;padding:0;font-weight:600;font-size:.85rem;color:var(--lake);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.h-empty{padding:24px;border:1px dashed var(--line);border-radius:var(--r);color:var(--muted);grid-column:1/-1}
+
+/* calendário */
+.cal-wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(20px,3vw,36px);margin-top:28px;align-items:start}
+.layers{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.layers .chip{display:inline-flex;align-items:center;gap:7px}
+.layers .chip i{width:10px;height:10px;border-radius:3px;display:inline-block;transition:opacity .2s}
+.layers .chip[aria-pressed="false"] i{opacity:.25}
+.layers .chip[aria-pressed="false"]{color:var(--muted)}
+.cal{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.cal-h{font:500 .68rem var(--f-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:center;padding:4px 0}
+.cal-d{position:relative;min-height:58px;border-radius:10px;background:var(--surface);border:1px solid var(--line);padding:6px;display:flex;flex-direction:column;justify-content:space-between;align-items:stretch;cursor:pointer;font:500 .85rem var(--f-mono);color:var(--ink);text-align:left;transition:transform .35s var(--spring),border-color .2s}
+.cal-d:hover{transform:translateY(-2px)}
+.cal-d.janela{background:color-mix(in oklab,var(--lake-soft) 45%,var(--surface))}
+.cal-d.jan{color:var(--muted)}
+.cal-d.sel{border-color:var(--lake);box-shadow:0 0 0 1px var(--lake)}
+.cal-d .n{display:flex;justify-content:space-between;align-items:center}
+.cal-d .n em{font:500 .6rem var(--f-mono);font-style:normal;color:var(--muted);text-transform:uppercase}
+.cal-d .bars{display:flex;flex-direction:column;gap:2px}
+.cal-d .bars i{display:block;height:4px;border-radius:2px;transform-origin:0 50%}
+.cal-detail{padding:20px}
+.cal-detail h3{font-family:var(--f-display);font-weight:500;font-size:1.5rem;line-height:1.15}
+.cal-ev{list-style:none;padding:0;margin:14px 0 0;display:grid;gap:10px}
+.cal-ev li{display:grid;grid-template-columns:12px minmax(0,1fr);gap:10px;font-size:.92rem;color:var(--ink-2)}
+.cal-ev li i{width:10px;height:10px;border-radius:3px;margin-top:6px}
+
+/* colón, arquitetura e mesa */
+.music{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:26px}
+.mcard{padding:20px;display:flex;flex-direction:column;gap:8px}
+.mcard h3{font-family:var(--f-display);font-weight:500;font-size:1.35rem;line-height:1.15}
+.mcard .when{font:600 .8rem var(--f-mono);color:var(--lake)}
+.mcard p{font-size:.9rem;color:var(--ink-2)}
+.hlist{list-style:none;padding:0;margin:0;position:relative}
+.hlist li{position:relative;z-index:1;display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:11px 12px;border-radius:10px}
+.hlist li > span:first-child{min-width:0}
+.hlist li small{display:block;color:var(--muted);font-size:.8rem}
+#vias td small{display:block;font-size:.8rem}
+@media (max-width:640px){
+  #vias td:nth-child(2){white-space:normal}
+  #curitiba .costs th{letter-spacing:.02em}
+  #vias .btn-sm{padding-inline:10px}
+}
+.hlist .hl-pill{border-radius:10px;background:var(--surface);box-shadow:var(--shadow)}
+.costs{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:8px}
+.costs th,.costs td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:left}
+.costs th{font:500 .7rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.costs td.num{white-space:nowrap}
+
+/* dinheiro */
+.conv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin-top:28px;overflow:hidden}
+.conv-in{padding:24px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.conv-out{padding:24px}
+.amount{width:100%;font:500 2.2rem var(--f-mono);border:0;border-bottom:2px solid var(--line);background:transparent;color:var(--ink);padding:4px 0;border-radius:0;transition:border-color .2s}
+.amount:focus{outline:none;border-color:var(--lake)}
+.quick{display:flex;flex-wrap:wrap;gap:6px}
+.quick .chip{font-size:.76rem}
+.o-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+.o-row:last-child{border-bottom:0}
+.o-row .k{font:500 .74rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.o-row .k small{display:block;text-transform:none;letter-spacing:0;font-size:.72rem}
+.o-row .v{font:500 1.55rem var(--f-mono);text-align:right}
+.o-row.src .v{color:var(--muted)}
+.o-row.iof .v{color:var(--lake)}
+.info3{margin-top:40px}
+.info3 h3{font-family:var(--f-display);font-weight:500;font-size:1.4rem;margin-bottom:12px}
+
+/* prazos */
+.todo-top{display:flex;align-items:center;gap:16px;margin-top:26px}
+.tprog{flex:1;height:8px;border-radius:999px;background:var(--surface-2);overflow:hidden}
+.tprog span{display:block;height:100%;width:100%;background:var(--lake);transform-origin:0 50%;transform:scaleX(0);transition:transform var(--soft-ms) var(--soft)}
+.tcount{font:600 .9rem var(--f-mono);white-space:nowrap}
+.tgroups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 36px;margin-top:18px}
+.tg{padding-block:12px;border-top:1px solid var(--line)}
+.tg-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+.tg-h b{font:600 .78rem var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.tg-h span{font:.74rem var(--f-mono);color:var(--muted);white-space:nowrap}
+.td{display:flex;gap:12px;align-items:flex-start;padding:7px 0}
+.cb{flex:none;width:22px;height:22px;margin-top:1px;border-radius:7px;border:1.5px solid var(--muted);background:var(--surface);display:grid;place-items:center;cursor:pointer;padding:0;transition:background-color .25s,border-color .25s,transform .4s var(--spring)}
+.cb:active{transform:scale(.88)}
+.cb svg path{stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset .35s ease .05s}
+.cb[aria-checked="true"]{background:var(--lake);border-color:var(--lake);color:var(--surface)}
+.cb[aria-checked="true"] svg path{stroke-dashoffset:0}
+.td-l{position:relative;font-size:.94rem;color:var(--ink);transition:color .3s;cursor:pointer}
+.td-l::after{content:"";position:absolute;left:0;right:0;top:.72em;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:0 50%;transition:transform .45s var(--soft)}
+.td.done .td-l{color:var(--muted)}
+.td.done .td-l::after{transform:scaleX(1)}
+
+/* fontes */
+.pend{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.pend li{display:flex;gap:12px;align-items:flex-start;color:var(--ink-2)}
+.pend .tag{margin-top:2px}
+footer{padding-block:40px 64px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+
+/* tooltip */
+#tip{position:fixed;left:0;top:0;z-index:100;pointer-events:none;max-width:260px;padding:7px 11px;border-radius:9px;background:var(--ink);color:var(--bg);font-size:.8rem;line-height:1.35;opacity:0;transform:translate(-50%,calc(-100% - 14px)) scale(.94);transition:opacity .15s,transform .25s var(--spring)}
+#tip.on{opacity:1;transform:translate(-50%,calc(-100% - 14px)) scale(1)}
+
+/* números deslizantes */
+.sn{display:inline-flex;align-items:flex-end;line-height:1;vertical-align:-.16em}
+.dg{display:inline-block;height:1em;overflow:hidden}
+.reel{display:flex;flex-direction:column;transition:transform var(--spring-ms) var(--spring)}
+.reel span{display:block;height:1em;line-height:1;text-align:center}
+.sc-ch{display:inline-block;height:1em;line-height:1}
+
+@media (max-width:900px){
+  .hero-grid,.route,.cal-wrap,.conv,.sim,.two{grid-template-columns:minmax(0,1fr)}
+  .sim-controls{border-right:0;border-bottom:1px solid var(--line)}
+  .sim-out{position:static}
+  .conv-in{border-right:0;border-bottom:1px solid var(--line)}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .music,.cols3{grid-template-columns:minmax(0,1fr)}
+  .tgroups{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+  .verdict{grid-template-columns:minmax(0,1fr)}
+  .counts{grid-template-columns:minmax(0,1fr)}
+  .rings,.score{grid-template-columns:minmax(0,1fr)}
+  .cmp-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cmp-row .cmp-k{grid-column:1/-1}
+  .cmp-row.head .cmp-k{display:none}
+  .tc-row,.tc-axis{grid-template-columns:minmax(0,1fr)}
+  .tc-axis > span{display:none}
+  .tc-row{gap:4px}
+  .cal-d{min-height:48px;padding:4px}
+  .cal-d .n em{display:none}
+  .brand{font-size:1.1rem}
+  .axis .ax-m{display:none}
+  .h-ctl .seg{grid-auto-columns:1fr;width:100%}
+  .h-ctl .seg button{padding:8px 4px;font-size:.84rem}
+}
+@media (max-width:420px){.stats{grid-template-columns:minmax(0,1fr)}}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in wrap">
+    <a class="brand" href="#inicio">Rumo ao Frio</a>
+    <nav class="nav" aria-label="Seções do plano">
+      <div class="nav-track">
+        <a class="nav-a" href="#veredito" data-sec="veredito">Veredito</a>
+        <a class="nav-a" href="#orcamento" data-sec="orcamento">Orçamento</a>
+        <a class="nav-a" href="#curitiba" data-sec="curitiba">Curitiba</a>
+        <a class="nav-a" href="#escola" data-sec="escola">Escola</a>
+        <a class="nav-a" href="#roteiro" data-sec="roteiro">Roteiro</a>
+        <a class="nav-a" href="#clima" data-sec="clima">Clima</a>
+        <a class="nav-a" href="#destino" data-sec="destino">Destino</a>
+        <a class="nav-a" href="#hospedagem" data-sec="hospedagem">Hospedagem</a>
+        <a class="nav-a" href="#dezembro" data-sec="dezembro">Dezembro</a>
+        <a class="nav-a" href="#colon" data-sec="colon">Colón e mesa</a>
+        <a class="nav-a" href="#dinheiro" data-sec="dinheiro">Dinheiro</a>
+        <a class="nav-a" href="#prazos" data-sec="prazos">Prazos</a>
+        <a class="nav-a" href="#fontes" data-sec="fontes">Fontes</a>
+      </div>
+    </nav>
+    <button class="icon-btn" id="theme-btn" type="button" aria-label="Alternar tema claro ou escuro">
+      <svg class="i-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      <svg class="i-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    </button>
+  </div>
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+</header>
+
+<aside class="thermo" aria-hidden="true">
+  <div class="thermo-read"><span id="thermo-num">29,0</span><span>°C</span></div>
+  <div class="thermo-scale">
+    <span style="bottom:90.6%">29 BA</span>
+    <span style="bottom:64.7%">21 BRC</span>
+    <span style="bottom:18.4%">6 BRC</span>
+  </div>
+  <div class="thermo-tube"><span class="thermo-fill" id="thermo-fill"></span></div>
+  <div class="thermo-bulb" id="thermo-bulb"></div>
+  <p class="thermo-cap">quanto mais desce, mais frio</p>
+</aside>
+
+<main id="inicio">
+<section class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <p class="eyebrow">Plano de viagem · Londrina → Argentina · 14 a 22 de dezembro de 2026</p>
+      <h1 class="hero-title"><span class="split" id="split">Rumo ao</span> <em class="grad" id="frio">frio</em></h1>
+      <p class="hero-lede">Ela quer conhecer o Jardín Fabulinus, em Tigre. Vocês dois odeiam calor. O plano: sair de Londrina, embarcar em Curitiba no voo direto, ficar pouco na Buenos Aires quente e, se o orçamento deixar, terminar em Bariloche.</p>
+      <p class="rotator"><span>Em Bariloche:</span> <span class="rot" id="rot" aria-hidden="true">lagos de água fria</span><span class="sr-only">lagos de água fria, arquitetura de Bustillo, hidro privativa com lareira, silêncio no Circuito Chico, cordeiro na lareira, 6 °C de manhã</span></p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#orcamento" data-magnetic>Montar o trajeto</a>
+        <a class="btn btn-ghost" href="#roteiro" data-magnetic>Ver o roteiro dia a dia</a>
+      </div>
+    </div>
+    <div class="hero-thermo card">
+      <canvas id="snow" aria-hidden="true"></canvas>
+      <div class="ht-in">
+        <p class="ht-label" id="ht-label">Buenos Aires · máxima média de dezembro</p>
+        <p class="ht-num" id="ht-numwrap"><span id="ht-num">29,0</span><span class="ht-unit">°C</span></p>
+        <div class="chips" role="radiogroup" aria-label="Temperatura média de dezembro por cidade" id="ht-chips">
+          <button class="chip" role="radio" aria-checked="true" data-v="0">BA máx.</button>
+          <button class="chip" role="radio" aria-checked="false" data-v="1">BA mín.</button>
+          <button class="chip" role="radio" aria-checked="false" data-v="2">Bariloche máx.</button>
+          <button class="chip" role="radio" aria-checked="false" data-v="3">Bariloche mín.</button>
+          <button class="chip" role="radio" aria-checked="false" data-v="4">Ushuaia máx.</button>
+          <button class="chip" role="radio" aria-checked="false" data-v="5">Ushuaia mín.</button>
+        </div>
+        <p class="ht-foot">Normais climatológicas de dezembro, 1991–2020. Passe o cursor: a neve desvia. É licença poética; em dezembro Bariloche é fresca, não gelada.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><p class="stat-k">Cabe no teto de R$ 8.000</p><p class="stat-v">R$ <span data-count="7800" data-fmt="k">7,8</span> mil</p><p class="stat-n">Curitiba + Buenos Aires, 14 a 19/12, sem Bariloche</p></div>
+    <div class="stat"><p class="stat-k">Com Bariloche</p><p class="stat-v">R$ <span data-count="10200" data-fmt="k">10,2</span>–<span data-count="14200" data-fmt="k">14,2</span> mil</p><p class="stat-n">da versão enxuta (2 noites) à completa (3 noites, day spa e hotel melhor)</p></div>
+    <div class="stat stat-heat"><p class="stat-k">Fim das aulas em Tigre</p><p class="stat-v">22/12</p><p class="stat-n" id="days-school">último dia letivo da província</p></div>
+    <div class="stat"><p class="stat-k">El Niño</p><p class="stat-v">&gt;<span data-count="90">90</span>%</p><p class="stat-n">de chance de ser muito forte até janeiro (NOAA)</p></div>
+  </div>
+  <p class="alert-pill"><span class="pulse" aria-hidden="true"></span><span class="shimmer">Comprem as passagens agora: o prazo ideal, de 4 a 6 meses antes, já passou.</span></p>
+</section>
+
+<!-- VEREDITO -->
+<section class="sec wrap" id="veredito">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Veredito</p>
+    <h2>Dez linhas antes de <em>decidir</em></h2>
+    <p class="lede">Preços e previsões coletados em 13/10/2026. Passagem e hospedagem mudam todo dia: os valores servem para decidir, não para fechar compra sem conferir.</p>
+  </div>
+  <ul class="verdict" id="verdict" data-reveal data-marks>
+    <li><strong class="mark">A escola fica em General Pacheco, Tigre</strong>, a 35 km do centro de Buenos Aires. As aulas terminam em 22/12; a visita tem de acontecer entre 15 e 22/12, de preferência nos três primeiros dias.</li>
+    <li><strong class="mark">Buenos Aires em dezembro é quente</strong> (máxima média de 29 °C), e o El Niño forte traz mais chuva e tempestade. Fiquem 2 ou 3 noites, com programa coberto.</li>
+    <li><strong class="mark">Bariloche é o frio com melhor custo-benefício</strong>: 6 a 21 °C, arquitetura de Bustillo, lagos e cabanas com hidro privativa desde USD 100–120. Ushuaia é mais fria e custa R$ 1.500–2.500 a mais.</li>
+    <li><strong class="mark">Voltem antes do Natal.</strong> Voos com volta entre 30/12 e 02/01 custam 2 a 3 vezes mais, e Bariloche encarece a partir do dia 24.</li>
+    <li><strong class="mark">R$ 8.000 fecham Curitiba + Buenos Aires, sem Bariloche</strong>: R$ 7,8 mil de 14 a 19/12 com a tarifa mínima, até R$ 9,8 mil com a mais alta. Com Bariloche, R$ 10,2 mil na versão enxuta e R$ 14,2 mil na completa.</li>
+    <li><strong class="mark">Se o teto for só para os gastos em terra</strong>, Bariloche cabe: R$ 5,4 mil na versão enxuta. A completa dá R$ 9,2 mil.</li>
+    <li><strong class="mark">Ônibus não compensa</strong>: Bariloche fica a 24 h e USD 130–165 só a ida, contra USD 117–153 ida e volta de avião na JetSMART. Tudo de ônibus desde Londrina sai R$ 8,2 mil, contra R$ 7,8 mil do voo por Curitiba, com dois dias a mais de estrada.</li>
+    <li><strong class="mark">O Quebra-Nozes no Teatro Colón, de 17 a 30/12</strong>, é o ponto alto de música clássica. Em Bariloche não há nada confirmado em dezembro.</li>
+    <li><strong class="mark">Seguro-viagem é obrigatório</strong> para entrar na Argentina desde julho de 2025: uns R$ 25–35 por pessoa por dia.</li>
+    <li><strong class="mark">Curitiba é a porta, não o frio.</strong> O voo direto da Aerolíneas sai às 08:50 e a volta de Buenos Aires às 05:40. Em dezembro, Curitiba tem 16,7 a 26,7 °C e chuva à tarde.</li>
+  </ul>
+</section>
+
+<!-- ORÇAMENTO -->
+<section class="sec wrap" id="orcamento">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Orçamento do casal</p>
+    <h2>Cabe nos R$ 8.000?</h2>
+    <p class="lede">Montem o trajeto trecho a trecho: como sair de Londrina, de avião, carro ou ônibus, quantas noites em cada cidade e como chegar a Bariloche. A conta, o roteiro dia a dia e o mapa mudam juntos. Tarifas vistas entre 09 e 13/10/2026, câmbio do dia 13 e IOF de 3,38% sobre o que for pago no cartão.</p>
+  </div>
+  <div class="sim card" data-reveal>
+    <div class="sim-controls">
+      <fieldset>
+        <legend class="ctl-label">Atalhos</legend>
+        <div class="chips presets" id="sim-presets"></div>
+      </fieldset>
+      <fieldset>
+        <legend class="ctl-label">Dia de entrar na Argentina</legend>
+        <div class="seg" role="radiogroup" aria-label="Dia de entrar na Argentina" id="g-ida"></div>
+      </fieldset>
+      <fieldset>
+        <legend class="ctl-label">Trecho internacional</legend>
+        <div class="seg grid2" role="radiogroup" aria-label="Por onde sair do Brasil" id="g-emb"></div>
+      </fieldset>
+      <fieldset id="f-acesso">
+        <legend class="ctl-label" id="l-acesso">De Londrina a Curitiba</legend>
+        <div class="seg grid2" role="radiogroup" aria-labelledby="l-acesso" id="g-acesso"></div>
+      </fieldset>
+      <fieldset id="f-cwb">
+        <legend class="ctl-label">Noites em Curitiba</legend>
+        <div class="ctl-pair">
+          <div><span class="ctl-label" id="l-cwbi">na ida</span><div class="seg" role="radiogroup" aria-labelledby="l-cwbi" id="g-cwbIda"></div></div>
+          <div><span class="ctl-label" id="l-cwbv">na volta</span><div class="seg" role="radiogroup" aria-labelledby="l-cwbv" id="g-cwbVolta"></div></div>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend class="ctl-label">Noites em Buenos Aires</legend>
+        <div class="seg" role="radiogroup" aria-label="Noites em Buenos Aires" id="g-baN"></div>
+      </fieldset>
+      <fieldset>
+        <legend class="ctl-label">Noites em Bariloche</legend>
+        <div class="seg" role="radiogroup" aria-label="Noites em Bariloche" id="g-brcN"></div>
+      </fieldset>
+      <fieldset id="f-brcModo">
+        <legend class="ctl-label">Buenos Aires–Bariloche</legend>
+        <div class="seg" role="radiogroup" aria-label="Como ir de Buenos Aires a Bariloche" id="g-brcModo"></div>
+      </fieldset>
+      <fieldset>
+        <legend class="ctl-label">Padrão de hotel e comida</legend>
+        <div class="seg" role="radiogroup" aria-label="Padrão de hotel e comida" id="g-nivel"></div>
+      </fieldset>
+      <div class="sw-row">
+        <button class="switch" id="sw-spa" role="switch" aria-checked="false" type="button"><span class="thumb"></span></button>
+        <label for="sw-spa">Incluir um day spa no lago<small>Acqua Spa, 4 horas, em Bariloche. Mais R$ 455 para o casal. Sem ele, fica a hidro da cabana.</small></label>
+      </div>
+      <div class="sw-row">
+        <button class="switch" id="sw-land" role="switch" aria-checked="false" type="button"><span class="thumb"></span></button>
+        <label for="sw-land">Contar só os gastos em terra<small>Tira as passagens de avião e de ônibus. Carro, Uber e hotéis ficam.</small></label>
+      </div>
+      <div>
+        <div class="range-row"><label class="ctl-label" for="teto">Teto do casal</label><output for="teto" id="teto-out">R$ 8.000</output></div>
+        <input type="range" id="teto" min="6000" max="16000" step="100" value="8000">
+      </div>
+    </div>
+    <div class="sim-out">
+      <p class="out-k">Total estimado para o casal</p>
+      <p class="out-total"><span class="cur">R$</span><span id="sim-total">7.801</span></p>
+      <p class="out-range" id="sim-range">com as tarifas mínimas encontradas</p>
+      <p class="vchip over" id="sim-verdict">Passa do teto.</p>
+      <ol class="chain" id="sim-chain" aria-label="Trajeto escolhido"></ol>
+      <p class="sim-hours" id="sim-hours"></p>
+      <div class="bar-wrap">
+        <div class="bar" id="sim-bar" role="img" aria-label="Composição do total por categoria, numa escala de 0 a 14 mil reais">
+          <span class="bseg" data-cat="aereo" style="background:var(--s1)"></span>
+          <span class="bseg" data-cat="hosp" style="background:var(--s2)"></span>
+          <span class="bseg" data-cat="comida" style="background:var(--s3)"></span>
+          <span class="bseg" data-cat="passeios" style="background:var(--s4)"></span>
+          <span class="bseg" data-cat="taxas" style="background:var(--s5)"></span>
+        </div>
+        <div class="ceil" id="sim-ceil"><span>teto R$ 8.000</span></div>
+        <div class="axis" id="sim-axis" aria-hidden="true"></div>
+      </div>
+      <ul class="legend" id="sim-legend"></ul>
+      <p class="sim-note" id="sim-note"></p>
+      <div class="acc" style="margin-top:18px">
+        <div class="acc-item">
+          <button class="acc-btn" type="button" aria-expanded="false" aria-controls="acc-items">Ver os itens da conta <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="acc-panel" id="acc-items" hidden><div class="acc-body"><table class="items"><tbody id="sim-items"></tbody></table></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="two" style="margin-top:36px" data-reveal>
+    <div>
+      <p class="sub">Como cortar sem perder o essencial</p>
+      <ul class="blist">
+        <li><strong>Comprar os voos esta semana</strong>, numa terça ou quarta. Fim de semana custa até 30% mais.</li>
+        <li><strong>Só bagagem de mão</strong> nas low-cost (JetSMART: 45×35×25 cm e 8 kg). Em 6 a 8 dias dá, com roupa em camadas.</li>
+        <li><strong>Cabana com cozinha</strong>: café e almoço de mercado, jantar fora dia sim, dia não. Em Bariloche, leite a USD 1,37, pão a USD 2,07, dúzia de ovos a USD 2,73.</li>
+        <li><strong>Hidro da cabana no lugar do day spa</strong>: economiza R$ 460 a 760 por casal.</li>
+      </ul>
+    </div>
+    <div>
+      <p class="sub">&nbsp;</p>
+      <ul class="blist">
+        <li><strong>Passeios gratuitos</strong>: Centro Cívico, Catedral, trilhas do Llao Llao, Capilla San Eduardo (por fora), Cascada de los Duendes, Ateneo, Kavanagh, Museo del Agua.</li>
+        <li><strong>Dormir em Recoleta, não em Puerto Madero</strong>: mais barato, tão seguro quanto, e a pé do Colón, do Ateneo e do cemitério.</li>
+        <li><strong>Entrar na Argentina até o dia 15</strong>: o voo direto de Curitiba sai por R$ 1.790 por pessoa, ida e volta (tarifa vista para 14/12). Entrando no dia 16, R$ 2.783.</li>
+        <li><strong>A janela inteira (15/12 a 02/01) passa de R$ 20.000.</strong> Natal e Réveillon são o pior momento de preço e lotação na Patagônia.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CURITIBA -->
+<section class="sec wrap" id="curitiba">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Saída por Curitiba</p>
+    <h2>Curitiba é a <em>porta</em>, não o frio</h2>
+    <p class="lede">De Londrina, o caminho que melhor equilibra preço e horas é dormir uma noite em Curitiba e pegar o voo direto da Aerolíneas às 08:50. A volta sai do Aeroparque às 05:40. Em dezembro, Curitiba tem máxima média de 26,7 °C e mínima de 16,7 °C, com chuva à tarde.</p>
+  </div>
+  <div class="two">
+    <div data-reveal>
+      <p class="sub">Os caminhos de Londrina a Buenos Aires</p>
+      <table class="costs">
+        <thead><tr><th>Caminho</th><th>Por sentido</th><th>Casal</th><th><span class="sr-only">Montador</span></th></tr></thead>
+        <tbody id="vias"></tbody>
+      </table>
+      <p class="note" style="margin-top:12px">Só o transporte, ida e volta, com a menor tarifa vista em 13/10; o voo de Curitiba é o de 14/12. Noites em Curitiba, Uber e estacionamento entram na conta do montador. "Usar" leva o caminho para o orçamento.</p>
+    </div>
+    <div data-reveal>
+      <p class="sub">Uma noite em Curitiba</p>
+      <ul class="hlist" id="cwb-list">
+        <li><span>Natal do Palácio Avenida<small>Coral nas janelas, ao ar livre na Rua XV · 18 a 20/12, 20h15</small></span><span class="tag priv">confirmado</span></li>
+        <li><span>Camerata Antiqua de Curitiba<small>Teatro Positivo · 16/12</small></span><span class="tag">a confirmar</span></li>
+        <li><span>Orquestra Sinfônica do Paraná<small>Sem programação publicada para dezembro</small></span><span class="tag">checar</span></li>
+        <li><span>Ópera de Arame<small>Teatro de tubos de aço sobre um lago, numa antiga pedreira</small></span><span class="tag">arquitetura</span></li>
+        <li><span>Museu Oscar Niemeyer<small>O "Olho", de Niemeyer</small></span><span class="tag">R$ 36</span></li>
+      </ul>
+      <p class="note" style="margin-top:12px">Hotéis com hidro: Novotel Batel (em algumas suítes), Primo Cabana, Chalet Sossego (Quatro Barras) e Vila do Porto (Morretes). O montador conta R$ 450 por dia em Curitiba, com hotel e refeições, no padrão econômico, e R$ 900 no confortável.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ESCOLA -->
+<section class="sec wrap" id="escola">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">A escola</p>
+    <h2>Jardín <em>Fabulinus</em>, General Pacheco</h2>
+    <p class="lede">Educação inicial privada, com proposta de educação pela arte. Foi o primeiro jardim de Pacheco com jornada dupla e funciona no mesmo complexo do Colegio Antonio Berni.</p>
+  </div>
+  <div class="two" style="margin-top:30px" data-reveal>
+    <div>
+      <dl class="facts">
+        <dt>Nome</dt><dd>Jardín Fabulinus (aparece como "Fabulinos" em alguns cadastros)</dd>
+        <dt>Endereço</dt><dd>Buenos Aires 550, B1617FQL General Pacheco, partido de Tigre, província de Buenos Aires</dd>
+        <dt>Nível</dt><dd>Jardim maternal e de infância, privado</dd>
+        <dt>Avaliações</dt><dd>8,2/10 (44 opiniões) num portal; 4,1/5 (39) em outro</dd>
+        <dt>Fim das aulas</dt><dd><strong>Terça, 22/12/2026</strong>, pelo calendário da província de Buenos Aires</dd>
+      </dl>
+      <div class="counts">
+        <div class="count"><b id="cd-mail">–</b><span>dias até 1º de novembro, para escrever à escola</span></div>
+        <div class="count"><b id="cd-visit">–</b><span>dias até quarta 16/12, dia proposto para a visita</span></div>
+        <div class="count hot"><b id="cd-end">–</b><span>dias até 22/12, último dia de aula</span></div>
+      </div>
+      <p class="sub" style="margin-top:28px">Como organizar a visita</p>
+      <ul class="blist">
+        <li>Escrevam em espanhol até o início de novembro. O telefone e o Instagram estão no Google Maps ("Jardín Fabulinus General Pacheco"); um diretório traz endereço alternativo (Salta y Jujuy), então confirmem na resposta.</li>
+        <li>Proponham <strong>quarta 16/12 ou quinta 17/12, de manhã</strong>. De 18 a 22/12 costuma haver atos de fim de ano: interessante para ver a proposta artística, mas com a equipe ocupada.</li>
+        <li>Peçam 40 a 60 minutos com a direção e digam o motivo: interesse pedagógico na educação pela arte.</li>
+      </ul>
+    </div>
+    <div>
+      <p class="sub">Como chegar a partir de Recoleta ou Palermo</p>
+      <div class="tabs" role="tablist" aria-label="Meios de transporte" id="tabs-trans">
+        <button class="tab" role="tab" id="t-uber" aria-controls="p-uber" aria-selected="true">Uber ou Cabify</button>
+        <button class="tab" role="tab" id="t-trem" aria-controls="p-trem" aria-selected="false">Trem Mitre</button>
+        <button class="tab" role="tab" id="t-bus" aria-controls="p-bus" aria-selected="false">Ônibus</button>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="p-uber" aria-labelledby="t-uber">Porta a porta pela Panamericana: 35 km, 45 a 60 minutos. De ARS 25.000 a 40.000 por trecho (R$ 80 a 130). É a opção mais simples e a recomendada para a ida de manhã cedo.</div>
+      <div class="tabpanel" role="tabpanel" id="p-trem" aria-labelledby="t-trem" hidden>Ramal Tigre, saindo de Retiro (voltou a operar até Retiro em março de 2026): 45 a 55 minutos até Tigre, com cartão SUBE. De Tigre a Pacheco são uns 8 km, 15 minutos de táxi. Uma fonte pouco confiável cita uma estação "General Pacheco" com ligação a Retiro; confirmem no app Trenes Argentinos antes de contar com ela.</div>
+      <div class="tabpanel" role="tabpanel" id="p-bus" aria-labelledby="t-bus" hidden>As linhas 60, 203 e 371 chegam a Pacheco, mas levam de 90 a 120 minutos. Só como alternativa.</div>
+      <p class="sub" style="margin-top:28px">No mesmo dia, à tarde: Tigre</p>
+      <ul class="blist">
+        <li><strong>Museo de Arte Tigre</strong>, Paseo Victorica 972: o antigo Tigre Club, de 1912. Abre de quarta a domingo a partir das 13h (fim de semana, do meio-dia). Fica na barranca alta, bom plano B se o rio subir.</li>
+        <li>Caminhada pelo Paseo Victorica, à beira do rio Luján, e almoço na orla.</li>
+        <li>Lancha coletiva de 1 hora pelo Delta, se o nível do rio permitir.</li>
+        <li>Volta pelo trem Mitre (Tigre → Retiro) ou pelo Tren de la Costa.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="letter-wrap" data-reveal>
+    <div class="letter-bar">
+      <span class="tag conf">Rascunho em espanhol para enviar à escola</span>
+      <button class="btn btn-ghost btn-sm copy-btn" type="button" id="copy-btn">
+        <span class="ic"><svg class="i-copy" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg><svg class="i-ok" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        <span id="copy-label">Copiar texto</span>
+      </button>
+    </div>
+    <div class="letter" id="letter">Asunto: Pedido de visita al Jardín Fabulinus (diciembre de 2026)
+
+Estimado equipo directivo del Jardín Fabulinus:
+
+Somos una pareja de Brasil y nos interesa mucho la propuesta de educación a través del arte del jardín. Estaremos en Buenos Aires del 15 al 22 de diciembre de 2026 y nos encantaría conocerlo.
+
+¿Sería posible una visita de 40 a 60 minutos con la dirección el miércoles 16 o el jueves 17 de diciembre, por la mañana? Si hay alguna muestra de fin de año abierta a visitantes, también nos encantaría asistir.
+
+Les pedimos, por favor, que nos confirmen la dirección (Buenos Aires 550, General Pacheco) y el horario más conveniente para ustedes.
+
+Muchas gracias por su atención.
+
+Saludos cordiales,
+[sus nombres]
+[WhatsApp con código de país] · [e-mail]</div>
+  </div>
+</section>
+
+<!-- ROTEIRO -->
+<section class="sec wrap" id="roteiro">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Roteiro</p>
+    <h2>O trajeto, <em>dia a dia</em></h2>
+    <p class="lede">Os dias saem do trajeto montado no orçamento: mudem a saída, o embarque, o ônibus ou as noites e o roteiro se refaz. Toque num dia para ver o programa; as setas do teclado também andam pelos dias.</p>
+  </div>
+  <div class="route" data-reveal>
+    <div class="card map">
+      <svg viewBox="0 0 540 330" role="img" aria-labelledby="map-t">
+        <title id="map-t">Esquema da rota: Londrina, Curitiba ou São Paulo, Buenos Aires, Tigre e Bariloche</title>
+        <line class="mp-lat" x1="0" x2="540" y1="61" y2="61"/><text class="mp-latl" x="6" y="56">25° S</text>
+        <line class="mp-lat" x1="0" x2="540" y1="131" y2="131"/><text class="mp-latl" x="6" y="126">30° S</text>
+        <line class="mp-lat" x1="0" x2="540" y1="201" y2="201"/><text class="mp-latl" x="6" y="221">35° S</text>
+        <line class="mp-lat" x1="0" x2="540" y1="271" y2="271"/><text class="mp-latl" x="6" y="266">40° S</text>
+        <path class="rt" id="r-ldb-cwb" d="M406,37 Q425,45 432,67"/>
+        <path class="rt" id="r-ldb-gru" d="M406,37 Q440,25 470,40"/>
+        <path class="rt" id="r-cwb-ba" d="M432,67 Q425,150 305,195"/>
+        <path class="rt" id="r-gru-ba" d="M470,40 Q455,140 305,195"/>
+        <path class="rt" id="r-ba-tigre" d="M305,195 Q290,186 284,168"/>
+        <path class="rt" id="r-ba-brc" d="M305,195 Q225,200 124,286"/>
+        <circle class="mp-node" data-node="ldb" cx="406" cy="37" r="7"/>
+        <circle class="mp-node" data-node="cwb" cx="432" cy="67" r="6"/>
+        <circle class="mp-node" data-node="gru" cx="470" cy="40" r="6"/>
+        <circle class="mp-node" data-node="ba" cx="305" cy="195" r="7"/>
+        <circle class="mp-node" data-node="tigre" cx="284" cy="168" r="6"/>
+        <circle class="mp-node" data-node="brc" cx="124" cy="286" r="7"/>
+        <text class="mp-label" x="394" y="32" text-anchor="end">Londrina</text><text class="mp-sub" x="394" y="50" text-anchor="end">20–31 °C</text>
+        <text class="mp-label" x="470" y="22" text-anchor="middle">São Paulo</text>
+        <text class="mp-label" x="446" y="84">Curitiba</text><text class="mp-sub" x="446" y="102">16,7–26,7 °C</text>
+        <text class="mp-label" x="322" y="214">Buenos Aires</text><text class="mp-sub" x="322" y="232">18,5–29 °C</text>
+        <text class="mp-label" x="270" y="160" text-anchor="end">Tigre</text><text class="mp-sub" x="270" y="142" text-anchor="end">escola</text>
+        <text class="mp-label" x="142" y="305">Bariloche</text><text class="mp-sub" x="142" y="323">5,9–20,7 °C</text>
+        <g id="marker" transform="translate(305 195)"><circle class="mk-halo" r="16"/><circle class="mk-dot" r="7"/></g>
+      </svg>
+      <p class="map-cap">Esquema com latitudes reais; a distância entre Buenos Aires e Tigre (35 km) está ampliada para caber.</p>
+    </div>
+    <div>
+      <p class="note" id="rt-sum" style="margin-bottom:14px"></p>
+      <div class="days" role="tablist" aria-label="Dias da viagem" id="days"></div>
+      <div class="day-nav">
+        <button class="btn btn-ghost btn-sm" type="button" id="day-prev">← Dia anterior</button>
+        <span class="note" id="day-count"></span>
+        <button class="btn btn-ghost btn-sm" type="button" id="day-next">Próximo dia →</button>
+      </div>
+      <div class="card day-panel" id="day-panel" role="tabpanel" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIMA -->
+<section class="sec wrap" id="clima">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Clima e El Niño</p>
+    <h2>Quanto frio cada lugar entrega</h2>
+    <p class="lede">Médias de dezembro (1991–2020). O frio de Bariloche é fresco de montanha, não inverno: ótimo para quem odeia calor. Frio de casaco pesado, só Ushuaia. Londrina e Curitiba aparecem para medir o calor de que vocês fogem.</p>
+  </div>
+  <div class="tchart" data-reveal>
+    <div class="tc-legend"><span><i style="background:var(--lake)"></i>Mínima média</span><span><i style="background:var(--heat)"></i>Máxima média</span><span class="note">Cidades em negrito estão no roteiro</span></div>
+    <div id="tc-rows"></div>
+    <div class="tc-axis" aria-hidden="true"><span></span><div class="tc-ticks"><span style="left:0">0</span><span style="left:14.2857%">5</span><span style="left:28.5714%">10</span><span style="left:42.8571%">15</span><span style="left:57.1429%">20</span><span style="left:71.4286%">25</span><span style="left:85.7143%">30</span><span style="left:100%">35 °C</span></div></div>
+  </div>
+  <div class="two" style="margin-top:44px">
+    <div data-reveal>
+      <p class="sub">El Niño em 13/10/2026</p>
+      <div class="rings" id="rings">
+        <div class="ring"><svg width="84" height="84" viewBox="0 0 100 100" aria-hidden="true"><circle class="rbg" cx="50" cy="50" r="42"/><circle class="rfg" cx="50" cy="50" r="42" data-p="0.9"/></svg><div><b>&gt;<span data-count="90">90</span>%</b><span>de chance de El Niño muito forte até janeiro (NOAA)</span></div></div>
+        <div class="ring"><svg width="84" height="84" viewBox="0 0 100 100" aria-hidden="true"><circle class="rbg" cx="50" cy="50" r="42"/><circle class="rfg" cx="50" cy="50" r="42" data-p="0.75"/></svg><div><b><span data-count="75">75</span>%</b><span>de chance de ser o mais intenso desde 1950</span></div></div>
+      </div>
+      <p class="note" style="margin-top:14px">O SMN argentino considera praticamente certa a continuidade do fenômeno, forte a muito forte, com pico no fim de 2026 e efeitos até fevereiro de 2027.</p>
+    </div>
+    <div data-reveal>
+      <p class="sub">O que muda no plano, por região</p>
+      <div class="acc" id="acc-nino"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINO -->
+<section class="sec wrap" id="destino">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Bariloche ou Ushuaia</p>
+    <h2>Marquem o que importa e vejam quem <em>ganha</em></h2>
+    <p class="lede">Cada prioridade aponta o destino que o plano considera melhor naquele critério. O placar soma só as prioridades marcadas.</p>
+  </div>
+  <div data-reveal>
+    <div class="prio" id="prio" aria-label="Prioridades"></div>
+    <div class="score">
+      <div class="sc" id="sc-b"><div class="sc-top"><h3>Bariloche</h3><span class="pts" id="pts-b">4</span></div><div class="sc-bar"><span id="bar-b"></span></div></div>
+      <div class="sc" id="sc-u"><div class="sc-top"><h3>Ushuaia</h3><span class="pts" id="pts-u">2</span></div><div class="sc-bar"><span id="bar-u"></span></div></div>
+    </div>
+    <p class="cmp-verdict" id="cmp-verdict" aria-live="polite"></p>
+    <div class="cmp" id="cmp"></div>
+    <p class="sub" style="margin-top:30px">Descartados, e por quê</p>
+    <div class="drop">
+      <span class="tag" tabindex="0" data-tip="Passagens de R$ 3.500 a 6.600 por pessoa na segunda quinzena de dezembro; hotéis de USD 160 a 360.">El Calafate e El Chaltén · custo</span>
+      <span class="tag" tabindex="0" data-tip="Sem voo barato. Pena: as Cabañas Bosque Andino (hidro dupla privativa, 10/10, USD 121) foram a melhor relação preço/hidro da pesquisa.">Esquel · logística</span>
+      <span class="tag" tabindex="0" data-tip="24 horas e USD 130 a 165 só a ida, mais caro que o avião ida e volta.">Ônibus leito até Bariloche · tempo e preço</span>
+      <span class="tag" tabindex="0" data-tip="Mais de R$ 20.000: volta em 02/01, trecho a Bariloche na virada perto de USD 276 por pessoa e diárias que sobem a partir de 24/12.">Janela inteira, 15/12 a 02/01 · preço</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOSPEDAGEM -->
+<section class="sec wrap" id="hospedagem">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Hospedagem</p>
+    <h2>Cabanas com hidro <em>dentro</em> da unidade</h2>
+    <p class="lede">Preços "a partir de" para o casal, coletados sem data, em baixa temporada. Para 18 a 22/12, contem com o mesmo valor ou até 20–30% a mais. Ao pedir cotação, perguntem se a hidro fica dentro da unidade.</p>
+  </div>
+  <div class="h-ctl" data-reveal>
+    <div class="seg" role="radiogroup" aria-label="Região" id="seg-reg">
+      <button role="radio" aria-checked="true" data-v="brc">Bariloche</button>
+      <button role="radio" aria-checked="false" data-v="vla">Villa La Angostura</button>
+      <button role="radio" aria-checked="false" data-v="ush">Ushuaia</button>
+      <button role="radio" aria-checked="false" data-v="ba">Buenos Aires</button>
+      <button role="radio" aria-checked="false" data-v="cwb">Curitiba</button>
+    </div>
+    <div class="sw-row">
+      <button class="switch" id="sw-hidro" role="switch" aria-checked="false" type="button"><span class="thumb"></span></button>
+      <label for="sw-hidro">Só hidro privativa confirmada</label>
+    </div>
+  </div>
+  <div class="h-grid" id="h-grid"></div>
+</section>
+
+<!-- DEZEMBRO -->
+<section class="sec wrap" id="dezembro">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Dezembro de 2026</p>
+    <h2>Por que 15 a 22 é a <em>janela</em></h2>
+    <p class="lede">A escola fecha no dia 22, O Quebra-Nozes começa no 17 e os preços sobem a partir do 24. Os dias em destaque são os do trajeto montado no orçamento. Liguem e desliguem as camadas; toque num dia para ver o que acontece nele.</p>
+  </div>
+  <div class="cal-wrap" data-reveal>
+    <div>
+      <div class="layers" id="layers"></div>
+      <div class="cal" id="cal"></div>
+    </div>
+    <div class="card cal-detail" id="cal-detail" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- COLÓN -->
+<section class="sec wrap" id="colon">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Música, arquitetura e mesa</p>
+    <h2>O Colón em dezembro, Bustillo no lago</h2>
+  </div>
+  <div class="music" data-reveal data-stagger>
+    <article class="card mcard tilt-lite"><p class="when">17 a 30/12/2026</p><h3>O Quebra-Nozes</h3><p>Tchaikovsky com o Ballet Estable, a Orquesta Estable e o Coro de Niños do Teatro Colón. Em 2025 os avulsos foram de ARS 9.000 a 218.000; setores altos ficam perto de USD 10–20. Comprem em teatrocolon.org.ar assim que abrir a venda: esgota.</p></article>
+    <article class="card mcard tilt-lite"><p class="when">19, 20 e 22/12</p><h3>Un sueño navideño</h3><p>Balé cantado do Instituto Superior de Arte do Colón. Programa infantil, interessante pela ligação com educação pela arte. Preço não publicado.</p></article>
+    <article class="card mcard tilt-lite"><p class="when">11h45 e 16h, em português</p><h3>Visita guiada ao Colón</h3><p>50 minutos, todos os dias exceto 24, 25 e 31/12 e 1º/01. ARS 34.000 por pessoa (cerca de USD 22). Só cartão ou pesos; não aceita moeda estrangeira.</p></article>
+  </div>
+  <p class="note" style="margin-top:16px;max-width:80ch">Referência de 2025, ainda não anunciada para 2026: gala lírica gratuita da Orquestra e Coro Estáveis do Colón no Parque Centenario (20/12/2025) e concerto com a Sinfónica Nacional no Palacio Libertad (19/12/2025). Vale checar em 1º de dezembro. Fora da janela: Filarmónica de Buenos Aires (4 e 13/12), Semana Musical Llao Llao (3 a 7/03/2027) e o festival de Villa La Angostura (fim de janeiro).</p>
+  <div class="two" style="margin-top:40px">
+    <div data-reveal>
+      <p class="sub">Arquitetura em Buenos Aires</p>
+      <ul class="hlist" id="arch">
+        <li><span>Teatro Colón<small>Visita guiada em português</small></span><span class="tag">ARS 34.000</span></li>
+        <li><span>El Ateneo Grand Splendid<small>Av. Santa Fe 1860 · teatro de 1919 virado livraria</small></span><span class="tag priv">grátis</span></li>
+        <li><span>Palacio Barolo<small>Av. de Mayo 1370 · reserva obrigatória, escadas</small></span><span class="tag">~ARS 38.000</span></li>
+        <li><span>Cemitério da Recoleta<small>9h às 17h</small></span><span class="tag">~ARS 19.000</span></li>
+        <li><span>Edificio Kavanagh<small>Florida 1065 · art déco de 1936, só exterior</small></span><span class="tag priv">grátis</span></li>
+        <li><span>Palacio de Aguas Corrientes<small>Museo del Agua · interior com visita combinada</small></span><span class="tag priv">grátis</span></li>
+        <li><span>Palacio Paz<small>Belle Époque · só com reserva, em espanhol</small></span><span class="tag">reserva</span></li>
+      </ul>
+      <p class="note" style="margin-top:12px">Em Bariloche: Centro Cívico e Catedral (grátis; catedral aberta por volta de 9h30–12h30 e 17h–19h30), Hotel Llao Llao e Capilla San Eduardo (1938) e o Museo de la Patagonia.</p>
+    </div>
+    <div data-reveal>
+      <p class="sub">Comer bem, em silêncio</p>
+      <ul class="hlist" id="food">
+        <li><span>Las Morillas · Bariloche<small>Patagônica com toque francês, luz baixa, mesas espaçadas, vista do lago</small></span><span class="tag">USD 35–45 pp</span></li>
+        <li><span>Casa Cassis · Lago Gutiérrez<small>Húngara e alemã, horta própria, 40 lugares no bosque; reservar</small></span><span class="tag">carta única</span></li>
+        <li><span>El Patacón · Bariloche<small>Cordeiro e carnes, madeira, pedra e lareira</small></span><span class="tag">USD 30–45 pp</span></li>
+        <li><span>Quetro Cocina · Bariloche<small>Menu degustação patagônico, poucas mesas, reserva pelo Instagram</small></span><span class="tag">USD 60–80 pp</span></li>
+        <li><span>Casa Cavia · Palermo Chico<small>Casarão de 1920 com jardim e fonte; o mais calmo dos três</small></span><span class="tag">$$$</span></li>
+        <li><span>Narda Comedor · Buenos Aires<small>Recomendado no Guia Michelin 2026; ruído não verificado</small></span><span class="tag">bom preço</span></li>
+      </ul>
+      <table class="costs">
+        <thead><tr><th>Item</th><th>Buenos Aires</th><th>Bariloche</th></tr></thead>
+        <tbody>
+          <tr><td>Jantar para dois, restaurante bom, sem bebida</td><td class="num">USD 50–85</td><td class="num">USD 40–60</td></tr>
+          <tr><td>Refeição barata, por pessoa</td><td class="num">USD 19</td><td class="num">USD 20</td></tr>
+          <tr><td>Cappuccino</td><td class="num">USD 3,90</td><td>similar</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- DINHEIRO -->
+<section class="sec wrap" id="dinheiro">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Dinheiro</p>
+    <h2>Conversor com o câmbio de 13/10</h2>
+    <p class="lede">USD 1 = R$ 4,99 = ARS 1.535 (oficial, venda). O dólar blue (1.540) e o MEP (1.543) estão colados no oficial, então o cartão internacional é o caminho simples. A inflação é de cerca de 1,7% ao mês: preço em pesos publicado há meses já está defasado.</p>
+  </div>
+  <div class="conv card" data-reveal>
+    <div class="conv-in">
+      <div>
+        <label class="ctl-label" for="amount">Valor</label>
+        <input class="amount" id="amount" type="number" inputmode="decimal" min="0" step="any" value="34000">
+      </div>
+      <div class="seg" role="radiogroup" aria-label="Moeda do valor" id="seg-cur">
+        <button role="radio" aria-checked="true" data-v="ARS">Pesos</button>
+        <button role="radio" aria-checked="false" data-v="USD">Dólares</button>
+        <button role="radio" aria-checked="false" data-v="BRL">Reais</button>
+      </div>
+      <div class="sw-row">
+        <button class="switch" id="sw-iof" role="switch" aria-checked="true" type="button"><span class="thumb"></span></button>
+        <label for="sw-iof">Somar IOF de 3,38% (cartão brasileiro no exterior)</label>
+      </div>
+      <div>
+        <p class="ctl-label">Preços do plano</p>
+        <div class="quick" id="quick"></div>
+      </div>
+    </div>
+    <div class="conv-out">
+      <div class="o-row" data-c="ARS"><span class="k">Pesos argentinos</span><span class="v">ARS <span id="o-ars">34.000</span></span></div>
+      <div class="o-row" data-c="USD"><span class="k">Dólares</span><span class="v">USD <span id="o-usd">22,15</span></span></div>
+      <div class="o-row" data-c="BRL"><span class="k">Reais</span><span class="v">R$ <span id="o-brl">110,53</span></span></div>
+      <div class="o-row iof" id="o-iof-row"><span class="k">Reais com IOF<small>o que sai da conta no cartão</small></span><span class="v">R$ <span id="o-iof">114,27</span></span></div>
+    </div>
+  </div>
+  <div class="cols3 info3" data-reveal data-stagger>
+    <div>
+      <h3>Pagar</h3>
+      <ul class="blist">
+        <li>Cartão Visa ou Mastercard em tudo que aceitar. Não há mais vantagem em levar dólar em espécie.</li>
+        <li>Pix funciona em lojas com Mercado Pago, e o Banco do Brasil tem Pix no exterior. Confiram as condições do banco antes.</li>
+        <li>Levem alguns pesos para feira, ônibus e lojinhas. O Colón só aceita cartão ou pesos.</li>
+        <li>Cartão SUBE (comprado em quiosque) para trem e ônibus em Buenos Aires e para o ônibus 20 em Bariloche.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Segurança</h3>
+      <ul class="blist">
+        <li>Argentina está no Nível 1 (precauções normais) no aviso dos EUA de julho de 2026. O risco é furto, não violência.</li>
+        <li>Buenos Aires: celular longe do meio-fio, La Boca só de dia, Uber ou Cabify à noite. Recoleta, Palermo e Puerto Madero são as áreas mais tranquilas.</li>
+        <li>Bariloche: roubos e furtos caíram 27% entre janeiro e setembro de 2026. Nunca deixar bagagem visível em carro estacionado.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Documentos</h3>
+      <ul class="blist">
+        <li>RG em bom estado, emitido há menos de 10 anos, ou passaporte. Sem visto.</li>
+        <li><strong>Seguro-viagem obrigatório</strong> (Decreto 366/2025). Sem valor mínimo; o mercado recomenda USD 30–40 mil. Um plano de 7 dias com USD 35 mil saiu por R$ 198 numa simulação recente.</li>
+        <li>Peçam cobertura de atraso e cancelamento, por causa do El Niño.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PRAZOS -->
+<section class="sec wrap" id="prazos">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Ordem de compra</p>
+    <h2>O que fazer, e até quando</h2>
+    <p class="lede">Marquem o que já foi feito. As marcações ficam salvas só neste navegador.</p>
+  </div>
+  <div class="todo-top" data-reveal><div class="tprog" aria-hidden="true"><span id="tprog"></span></div><span class="tcount" id="tcount">0 de 13</span></div>
+  <div class="tgroups" id="todo" data-reveal></div>
+</section>
+
+<!-- FONTES -->
+<section class="sec wrap" id="fontes">
+  <div class="sec-head" data-reveal>
+    <p class="eyebrow">Limites e fontes</p>
+    <h2>O que a pesquisa não conseguiu confirmar</h2>
+  </div>
+  <ul class="pend" data-reveal>
+    <li><span class="tag heat">a confirmar</span><span>Preço de hospedagem para as datas exatas: os sites exigem login ou bloquearam a leitura automática. Os valores são "a partir de", fora da temporada.</span></li>
+    <li><span class="tag heat">a confirmar</span><span>Preço avulso do Quebra-Nozes 2026 e a agenda diária; só a temporada de 17 a 30/12 está publicada.</span></li>
+    <li><span class="tag heat">a confirmar</span><span>Horário atual e preço de entrada do Museo de Arte Tigre.</span></li>
+    <li><span class="tag heat">a confirmar</span><span>Telefone e e-mail da escola: os diretórios estão desatualizados.</span></li>
+    <li><span class="tag heat">a confirmar</span><span>Tarifa atual do trem Mitre e se existe estação "General Pacheco" com serviço direto de Retiro.</span></li>
+    <li><span class="tag heat">a confirmar</span><span>Flybondi: nenhuma oferta para dezembro apareceu em nenhuma rota.</span></li>
+    <li><span class="tag heat">a confirmar</span><span>Tarifa Curitiba–Aeroparque de R$ 1.790 por pessoa: vista para ida em 14/12; entrando no dia 16 já aparecia R$ 2.783.</span></li>
+    <li><span class="tag heat">a confirmar</span><span>Hotéis de Curitiba: os preços achados são "a partir de", de guias de 2022 ou sem data. Hidro privativa confirmada só nos quatro listados.</span></li>
+    <li><span class="tag heat">a confirmar</span><span>Camerata Antiqua em 16/12 no Teatro Positivo: o dado veio só de resumo de busca. A Orquestra Sinfônica do Paraná não publicou a programação de dezembro.</span></li>
+    <li><span class="tag conf">conferido</span><span>O montador: os quatro trajetos prontos foram percorridos dia a dia, sem item faltando (R$ 7,8, 10,2, 14,2 e 8,2 mil). Com tarifa alta, os dois primeiros foram somados à mão: R$ 9.787 e 12.185.</span></li>
+  </ul>
+  <div class="acc" style="margin-top:32px" id="acc-src" data-reveal></div>
+</section>
+</main>
+
+<footer class="wrap">
+  <p>Plano montado em 13/10/2026 para a viagem de 14 a 22/12/2026. Câmbio, tarifas e previsões são daquele dia; confiram antes de comprar.</p>
+</footer>
+
+<div id="tip" role="tooltip"></div>
+
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const RM = matchMedia('(prefers-reduced-motion: reduce)');
+let reduce = RM.matches;
+if (RM.addEventListener) RM.addEventListener('change', e => { reduce = e.matches; });
+const fmt = n => Math.round(n).toLocaleString('pt-BR');
+const fmt2 = n => n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const store = {
+  get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+};
+
+/* ---------- molas: integra a mola e exporta como easing linear() do CSS ---------- */
+function springCurve(k, c, m = 1) {
+  const dt = 1 / 240; let x = 0, v = 0, t = 0; const xs = [0];
+  while (t < 2.5) {
+    const a = (-k * (x - 1) - c * v) / m; v += a * dt; x += v * dt; t += dt; xs.push(x);
+    if (Math.abs(1 - x) < 0.002 && Math.abs(v) < 0.02) break;
+  }
+  const N = 40, pts = [];
+  for (let i = 0; i <= N; i++) pts.push(+xs[Math.round(i * (xs.length - 1) / N)].toFixed(3));
+  pts[0] = 0; pts[N] = 1;
+  return { easing: 'linear(' + pts.join(', ') + ')', ms: Math.round(t * 1000) };
+}
+const hasLinear = !!(window.CSS && CSS.supports && CSS.supports('transition-timing-function', 'linear(0, 1)'));
+/* molas do animate-ui: switch/tilt 300/25, tabs/toggle 200/25 */
+const SNAP = hasLinear ? springCurve(300, 25) : { easing: 'cubic-bezier(.22,1.3,.36,1)', ms: 520 };
+const SOFT = hasLinear ? springCurve(200, 25) : { easing: 'cubic-bezier(.25,1.12,.4,1)', ms: 720 };
+const rootStyle = document.documentElement.style;
+rootStyle.setProperty('--spring', SNAP.easing); rootStyle.setProperty('--spring-ms', SNAP.ms + 'ms');
+rootStyle.setProperty('--soft', SOFT.easing); rootStyle.setProperty('--soft-ms', SOFT.ms + 'ms');
+const anim = (el, kf, opts) => (reduce || !el || !el.animate) ? null : el.animate(kf, opts);
+
+const ICON = {
+  ok: '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  over: '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2l6.5 11.5h-13z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 6.5v3.2M8 11.6v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+  warn: '<svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 4.8v3.6M8 10.9v.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+  chev: '<svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>'
+};
+
+/* ---------- destaque deslizante (Highlight / Tabs do animate-ui) ---------- */
+const HLS = [];
+function highlight(container, { underline = false } = {}) {
+  container.classList.add('hl-host');
+  const pill = document.createElement('span');
+  pill.className = 'hl-pill'; pill.setAttribute('aria-hidden', 'true');
+  container.prepend(pill);
+  const h = {
+    current: null,
+    place(el, instant) {
+      h.current = el;
+      if (!el || el.hidden || el.offsetWidth === 0) { pill.style.opacity = '0'; return; }
+      const x = el.offsetLeft, y = underline ? el.offsetTop + el.offsetHeight - 2 : el.offsetTop;
+      const snap = instant || reduce || pill.style.opacity !== '1';
+      if (snap) pill.style.transition = 'none';
+      pill.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+      pill.style.width = el.offsetWidth + 'px';
+      pill.style.height = (underline ? 2 : el.offsetHeight) + 'px';
+      if (snap) { void pill.offsetWidth; pill.style.transition = ''; }
+      pill.style.opacity = '1';
+    }
+  };
+  HLS.push(h);
+  if (window.ResizeObserver) new ResizeObserver(() => h.place(h.current, true)).observe(container);
+  return h;
+}
+const resyncAll = () => HLS.forEach(h => h.place(h.current, true));
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(resyncAll);
+addEventListener('resize', resyncAll);
+
+function hoverHighlight(list, itemSel) {
+  const h = highlight(list);
+  $$(itemSel, list).forEach(li => li.addEventListener('pointerenter', () => h.place(li)));
+  list.addEventListener('pointerleave', () => h.place(null));
+}
+
+/* ---------- grupo de rádio com teclado ---------- */
+function radioGroup(group, onChange) {
+  const btns = $$('[role="radio"]', group);
+  const h = highlight(group);
+  const select = (btn, focus, silent) => {
+    btns.forEach(b => { const on = b === btn; b.setAttribute('aria-checked', on ? 'true' : 'false'); b.tabIndex = on ? 0 : -1; });
+    h.place(btn);
+    if (focus) btn.focus();
+    if (!silent && onChange) onChange(btn.dataset.v, btn);
+  };
+  btns.forEach((b, i) => {
+    b.type = 'button';
+    b.addEventListener('click', () => select(b));
+    b.addEventListener('keydown', e => {
+      let j = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % btns.length;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + btns.length) % btns.length;
+      else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = btns.length - 1;
+      if (j !== null) { e.preventDefault(); select(btns[j], true); }
+    });
+  });
+  const init = btns.find(b => b.getAttribute('aria-checked') === 'true') || btns[0];
+  select(init, false, true); h.place(init, true);
+  return { set(v, silent) { const b = btns.find(x => x.dataset.v === v); if (b) select(b, false, silent); } };
+}
+
+function makeSwitch(btn, onChange) {
+  btn.addEventListener('click', () => {
+    if (btn.disabled) return;
+    const on = btn.getAttribute('aria-checked') !== 'true';
+    btn.setAttribute('aria-checked', on ? 'true' : 'false');
+    onChange(on);
+  });
+}
+
+/* ---------- número deslizante (SlidingNumber) ---------- */
+function slide(el, str) {
+  if (!el) return;
+  if (!el._vis) {
+    el.textContent = '';
+    el._sr = document.createElement('span'); el._sr.className = 'sr-only';
+    el._vis = document.createElement('span'); el._vis.className = 'sn'; el._vis.setAttribute('aria-hidden', 'true');
+    el.append(el._sr, el._vis); el._str = null;
+  }
+  if (el._str === str) return;
+  el._sr.textContent = str;
+  const shape = s => s.replace(/\d/g, '0');
+  const first = el._str === null;
+  if (first || shape(el._str) !== shape(str)) {
+    el._vis.textContent = '';
+    for (const ch of str) {
+      if (/\d/.test(ch)) {
+        const d = document.createElement('span'); d.className = 'dg';
+        const r = document.createElement('span'); r.className = 'reel';
+        for (let n = 0; n < 10; n++) { const s = document.createElement('span'); s.textContent = n; r.appendChild(s); }
+        if (first) r.style.transition = 'none';
+        d.appendChild(r); el._vis.appendChild(d);
+      } else {
+        const s = document.createElement('span'); s.className = 'sc-ch'; s.textContent = ch === ' ' ? ' ' : ch; el._vis.appendChild(s);
+      }
+    }
+    if (!first) anim(el._vis, [{ filter: 'blur(3px)', opacity: .35 }, { filter: 'blur(0)', opacity: 1 }], { duration: 320, easing: 'ease-out' });
+  }
+  const reels = el._vis.querySelectorAll('.reel'); let i = 0;
+  for (const ch of str) if (/\d/.test(ch)) reels[i++].style.transform = 'translateY(' + (-Number(ch) * 10) + '%)';
+  if (first) { void el._vis.offsetWidth; reels.forEach(r => { r.style.transition = ''; }); }
+  el._str = str;
+}
+
+/* ---------- contagem (CountingNumber) ---------- */
+function countUp(el, delay = 0) {
+  const to = Number(el.dataset.count); const k = el.dataset.fmt === 'k';
+  const out = v => k ? (v / 1000).toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) : fmt(v);
+  if (reduce) { el.textContent = out(to); return; }
+  const dur = 1500, t0 = performance.now() + delay;
+  const tick = now => {
+    const t = Math.min(1, Math.max(0, (now - t0) / dur)); const e = 1 - Math.pow(1 - t, 4);
+    el.textContent = out(to * e);
+    if (t < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+}
+
+/* ---------- tooltip que segue o cursor com mola ---------- */
+const tip = $('#tip'); let tOn = false, tx = 0, ty = 0, cx = 0, cy = 0, tRaf = 0;
+const clampX = x => Math.min(innerWidth - 140, Math.max(140, x));
+function tipLoop() {
+  cx += (tx - cx) * .22; cy += (ty - cy) * .22;
+  tip.style.left = cx + 'px'; tip.style.top = cy + 'px';
+  tRaf = (tOn && (Math.abs(tx - cx) > .4 || Math.abs(ty - cy) > .4)) ? requestAnimationFrame(tipLoop) : 0;
+}
+function showTip(text, x, y, jump) {
+  tip.textContent = text; tx = clampX(x); ty = y;
+  if (jump || !tOn || reduce) { cx = tx; cy = ty; tip.style.left = cx + 'px'; tip.style.top = cy + 'px'; }
+  tOn = true; tip.classList.add('on');
+  if (!tRaf) tRaf = requestAnimationFrame(tipLoop);
+}
+function hideTip() { tOn = false; tip.classList.remove('on'); }
+document.addEventListener('pointerover', e => { const t = e.target.closest('[data-tip]'); if (t) showTip(t.dataset.tip, e.clientX, e.clientY, !tOn); });
+document.addEventListener('pointermove', e => {
+  if (!tOn) return;
+  const t = e.target.closest('[data-tip]');
+  if (!t) { hideTip(); return; }
+  if (tip.textContent !== t.dataset.tip) tip.textContent = t.dataset.tip;
+  tx = clampX(e.clientX); ty = e.clientY;
+  if (!tRaf) tRaf = requestAnimationFrame(tipLoop);
+});
+document.addEventListener('focusin', e => { const t = e.target.closest('[data-tip]'); if (t) { const r = t.getBoundingClientRect(); showTip(t.dataset.tip, r.left + r.width / 2, r.top, true); } });
+document.addEventListener('focusout', hideTip);
+addEventListener('scroll', () => { if (tOn) hideTip(); }, { passive: true });
+
+/* ---------- acordeão com altura animada ---------- */
+function toggleAcc(btn) {
+  const p = document.getElementById(btn.getAttribute('aria-controls'));
+  const open = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+  if (p._a) { p._a.cancel(); p._a = null; }
+  if (reduce || !p.animate) { p.hidden = open; return; }
+  if (!open) {
+    p.hidden = false; const h = p.scrollHeight;
+    p._a = p.animate([{ height: '0px', opacity: 0, filter: 'blur(4px)' }, { height: h + 'px', opacity: 1, filter: 'blur(0)' }], { duration: SOFT.ms, easing: SOFT.easing });
+    p._a.onfinish = () => { p._a = null; };
+  } else {
+    const h = p.scrollHeight;
+    p._a = p.animate([{ height: h + 'px', opacity: 1 }, { height: '0px', opacity: 0 }], { duration: 240, easing: 'ease-in' });
+    p._a.onfinish = () => { p.hidden = true; p._a = null; };
+  }
+}
+document.addEventListener('click', e => { const b = e.target.closest('.acc-btn'); if (b) toggleAcc(b); });
+function buildAcc(container, items, prefix) {
+  container.innerHTML = items.map((it, i) =>
+    '<div class="acc-item"><button class="acc-btn" type="button" aria-expanded="false" aria-controls="' + prefix + i + '">' + it.t + ICON.chev + '</button>' +
+    '<div class="acc-panel" id="' + prefix + i + '" hidden><div class="acc-body">' + it.b + '</div></div></div>').join('');
+}
+
+/* ---------- ondulação e magnetismo nos botões ---------- */
+document.addEventListener('pointerdown', e => {
+  const b = e.target.closest('.btn'); if (!b || reduce) return;
+  const r = b.getBoundingClientRect(); const d = Math.max(r.width, r.height) * 2.2;
+  const s = document.createElement('span'); s.className = 'ripple';
+  s.style.width = s.style.height = d + 'px'; s.style.left = (e.clientX - r.left - d / 2) + 'px'; s.style.top = (e.clientY - r.top - d / 2) + 'px';
+  b.appendChild(s);
+  const a = s.animate([{ transform: 'scale(0)', opacity: .28 }, { transform: 'scale(1)', opacity: 0 }], { duration: 650, easing: 'ease-out' });
+  a.onfinish = () => s.remove();
+});
+const finePointer = matchMedia('(pointer: fine)').matches;
+if (finePointer) {
+  $$('[data-magnetic]').forEach(el => {
+    el.addEventListener('pointermove', e => {
+      if (reduce) return;
+      const r = el.getBoundingClientRect();
+      el.style.transform = 'translate(' + ((e.clientX - r.left - r.width / 2) * .22) + 'px,' + ((e.clientY - r.top - r.height / 2) * .32) + 'px)';
+    });
+    el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+  });
+}
+function tiltOn(el, max = 7) {
+  if (!finePointer) return;
+  el.addEventListener('pointermove', e => {
+    if (reduce) return;
+    const r = el.getBoundingClientRect(); const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+    el.style.transform = 'rotateX(' + (-py * max) + 'deg) rotateY(' + (px * max) + 'deg)';
+  });
+  el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+}
+$$('.tilt-lite').forEach(el => { el.style.transition = 'transform .6s var(--soft)'; tiltOn(el, 5); });
+
+/* ---------- tema com revelação circular (ThemeToggler) ---------- */
+const effTheme = () => { const t = document.documentElement.getAttribute('data-theme'); return (t === 'dark' || t === 'light') ? t : (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); };
+$('#theme-btn').addEventListener('click', e => {
+  const next = effTheme() === 'dark' ? 'light' : 'dark';
+  let done = false;
+  const apply = () => { if (done) return; done = true; document.documentElement.setAttribute('data-theme', next); };
+  if (!document.startViewTransition || reduce || document.hidden) { apply(); return; }
+  const x = e.clientX || innerWidth - 40, y = e.clientY || 30;
+  const rad = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
+  const t = document.startViewTransition(apply);
+  setTimeout(apply, 450); /* plano B: se a transição não rodar (aba sem quadros), troca mesmo assim */
+  t.ready.then(() => document.documentElement.animate(
+    { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + rad + 'px at ' + x + 'px ' + y + 'px)'] },
+    { duration: 700, easing: 'cubic-bezier(.4,0,.2,1)', pseudoElement: '::view-transition-new(root)' })).catch(() => {});
+});
+
+/* ---------- herói ---------- */
+(function splitTitle() {
+  const el = $('#split'); const text = el.textContent;
+  el.textContent = '';
+  const sr = document.createElement('span'); sr.className = 'sr-only'; sr.textContent = text; el.appendChild(sr);
+  [...text].forEach((ch, i) => {
+    const s = document.createElement('span'); s.className = 'ch'; s.setAttribute('aria-hidden', 'true'); s.textContent = ch;
+    el.appendChild(s);
+    anim(s, [{ transform: 'translateY(45%) rotate(5deg)', opacity: 0, filter: 'blur(10px)' }, { transform: 'none', opacity: 1, filter: 'blur(0)' }],
+      { duration: SOFT.ms + 260, delay: 80 + i * 55, easing: SOFT.easing, fill: 'backwards' });
+  });
+  anim($('#frio'), [{ transform: 'translateY(30%) scale(.9)', opacity: 0, filter: 'blur(14px)' }, { transform: 'none', opacity: 1, filter: 'blur(0)' }],
+    { duration: 1100, delay: 560, easing: SOFT.easing, fill: 'backwards' });
+})();
+
+const ROT = ['lagos de água fria', 'arquitetura de Bustillo', 'hidro privativa com lareira', 'silêncio no Circuito Chico', 'cordeiro na lareira', '6 °C de manhã'];
+let rotI = 0;
+setInterval(() => {
+  if (reduce || document.hidden) return;
+  const el = $('#rot');
+  const out = el.animate([{ transform: 'none', opacity: 1, filter: 'blur(0)' }, { transform: 'translateY(-55%)', opacity: 0, filter: 'blur(5px)' }], { duration: 260, easing: 'ease-in', fill: 'forwards' });
+  out.onfinish = () => {
+    rotI = (rotI + 1) % ROT.length; el.textContent = ROT[rotI]; out.cancel();
+    el.animate([{ transform: 'translateY(55%)', opacity: 0, filter: 'blur(5px)' }, { transform: 'none', opacity: 1, filter: 'blur(0)' }], { duration: SNAP.ms, easing: SNAP.easing });
+  };
+}, 2600);
+
+const HT = [
+  { t: 29.0, l: 'Buenos Aires · máxima média de dezembro' },
+  { t: 18.5, l: 'Buenos Aires · mínima média de dezembro' },
+  { t: 20.7, l: 'Bariloche · máxima média de dezembro' },
+  { t: 5.9, l: 'Bariloche · mínima média de dezembro' },
+  { t: 12.5, l: 'Ushuaia · máxima média de dezembro' },
+  { t: 4.7, l: 'Ushuaia · mínima média de dezembro' }
+];
+const tempColor = t => { const p = Math.round(Math.max(0, Math.min(1, (t - 4.7) / (29 - 4.7))) * 100); return 'color-mix(in oklab, var(--heat) ' + p + '%, var(--lake))'; };
+const htNum = $('#ht-num'), htLabel = $('#ht-label'), htWrap = $('#ht-numwrap');
+function showHT(i) {
+  const d = HT[i];
+  slide(htNum, d.t.toFixed(1).replace('.', ','));
+  htWrap.style.color = tempColor(d.t);
+  if (htLabel.textContent !== d.l) {
+    htLabel.textContent = d.l;
+    anim(htLabel, [{ opacity: 0, transform: 'translateY(6px)', filter: 'blur(3px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: 400, easing: 'ease-out' });
+  }
+}
+const htGroup = radioGroup($('#ht-chips'), v => showHT(Number(v)));
+showHT(0);
+if (!reduce) setTimeout(() => { htGroup.set('3'); }, 1500);
+
+$$('[data-count]').forEach((el, i) => { if (!el.closest('#rings')) countUp(el, 300 + i * 90); });
+(function schoolDays() {
+  const n = daysUntil(2026, 11, 22); const el = $('#days-school');
+  el.textContent = n > 1 ? 'faltam ' + n + ' dias; último dia letivo da província' : n === 1 ? 'falta 1 dia' : n === 0 ? 'é hoje o último dia de aula' : 'o ano letivo já terminou';
+})();
+function daysUntil(y, m, d) { const now = new Date(); const a = new Date(now.getFullYear(), now.getMonth(), now.getDate()); return Math.round((new Date(y, m, d) - a) / 864e5); }
+
+/* ---------- neve no herói (GravityStars, ao contrário: a neve desvia do cursor) ---------- */
+(function snow() {
+  const cv = $('#snow'); const ctx = cv.getContext('2d'); if (!ctx) return;
+  let w = 0, h = 0, flakes = [], running = false, visible = true, color = '27,106,134';
+  const mouse = { x: -999, y: -999, on: false };
+  const readColor = () => { const c = getComputedStyle(document.documentElement).getPropertyValue('--snow').trim(); if (c) color = c; };
+  const mk = any => ({ x: Math.random() * w, y: any ? Math.random() * h : -6, r: .6 + Math.random() * 2.2, vy: .16 + Math.random() * .5, ph: Math.random() * 6.28, vx: 0, a: .25 + Math.random() * .55 });
+  function resize() {
+    const r = cv.getBoundingClientRect(); const dpr = Math.min(2, devicePixelRatio || 1);
+    w = r.width; h = r.height; cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    flakes = Array.from({ length: Math.min(160, Math.round(w * h / 2400)) }, () => mk(true));
+    draw();
+  }
+  function step() {
+    for (const f of flakes) {
+      f.ph += .012; let ax = Math.sin(f.ph) * .06;
+      if (mouse.on) {
+        const dx = f.x - mouse.x, dy = f.y - mouse.y, d2 = dx * dx + dy * dy;
+        if (d2 < 12100) { const d = Math.sqrt(d2) || 1, force = (1 - d / 110) * 1.4; ax += dx / d * force * .5; f.y += dy / d * force * .5; }
+      }
+      f.vx = (f.vx + ax) * .92; f.x += f.vx; f.y += f.vy * (f.r * .55 + .45);
+      if (f.y > h + 6) Object.assign(f, mk(false));
+      if (f.x < -6) f.x = w + 6; else if (f.x > w + 6) f.x = -6;
+    }
+  }
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    for (const f of flakes) { ctx.beginPath(); ctx.fillStyle = 'rgba(' + color + ',' + f.a + ')'; ctx.arc(f.x, f.y, f.r, 0, 6.283); ctx.fill(); }
+  }
+  function loop() { if (!running) return; step(); draw(); requestAnimationFrame(loop); }
+  function sync() { const go = visible && !reduce && !document.hidden; if (go && !running) { running = true; requestAnimationFrame(loop); } else if (!go) running = false; }
+  const host = cv.parentElement;
+  host.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; mouse.on = true; });
+  host.addEventListener('pointerleave', () => { mouse.on = false; });
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(cv); else resize();
+  if (window.IntersectionObserver) new IntersectionObserver(es => { visible = es[0].isIntersecting; sync(); }).observe(cv);
+  document.addEventListener('visibilitychange', sync);
+  if (RM.addEventListener) RM.addEventListener('change', sync);
+  readColor();
+  new MutationObserver(() => { readColor(); if (!running) draw(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { readColor(); if (!running) draw(); });
+  sync();
+})();
+
+/* ---------- rolagem: barra de progresso, termômetro e menu ---------- */
+const pBar = $('#progress-bar'), tFill = $('#thermo-fill'), tBulb = $('#thermo-bulb'), tNum = $('#thermo-num');
+let sRaf = 0;
+function onScroll() {
+  sRaf = 0;
+  const max = document.documentElement.scrollHeight - innerHeight;
+  const p = max > 0 ? Math.min(1, Math.max(0, scrollY / max)) : 0;
+  const T = 29 - (29 - 4.7) * p; const col = tempColor(T);
+  pBar.style.transform = 'scaleX(' + p + ')'; pBar.style.background = col;
+  tFill.style.height = (T / 32 * 100) + '%'; tFill.style.background = col; tBulb.style.background = col;
+  slide(tNum, T.toFixed(1).replace('.', ','));
+}
+addEventListener('scroll', () => { if (!sRaf) sRaf = requestAnimationFrame(onScroll); }, { passive: true });
+onScroll();
+
+const navLinks = $$('.nav-a'); const navHL = highlight($('.nav-track')); const navEl = $('.nav');
+function setActive(id) {
+  const a = navLinks.find(l => l.dataset.sec === id);
+  navLinks.forEach(l => { l.classList.toggle('is-active', l === a); if (l === a) l.setAttribute('aria-current', 'location'); else l.removeAttribute('aria-current'); });
+  navHL.place(a || null);
+  if (a) navEl.scrollTo({ left: a.offsetLeft - navEl.clientWidth / 2 + a.offsetWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
+}
+const secs = $$('main > section[id]');
+if (window.IntersectionObserver) {
+  const spy = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) setActive(e.target.classList.contains('hero') ? null : e.target.id); }), { rootMargin: '-42% 0px -54% 0px' });
+  secs.forEach(s => spy.observe(s)); spy.observe($('.hero'));
+}
+
+/* ---------- entrada ao rolar (só para o que ainda está abaixo da dobra) ---------- */
+function playIn(el) {
+  if (el.hasAttribute('data-marks')) {
+    $$('.mark', el).forEach((m, i) => anim(m, [{ backgroundSize: '0% 100%' }, { backgroundSize: '100% 100%' }], { duration: 900, delay: 250 + i * 110, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'backwards' }));
+  }
+  const kids = el.hasAttribute('data-stagger') ? Array.from(el.children) : [el];
+  kids.forEach((k, i) => anim(k, [{ opacity: .1, transform: 'translateY(22px)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }],
+    { duration: SOFT.ms + 280, delay: i * 70, easing: SOFT.easing, fill: 'backwards' }));
+  if (el.id === 'rings' || el.contains($('#rings'))) playRings();
+  $$('.tc-range', el).forEach((r, i) => anim(r, [{ transform: 'translateY(-50%) scaleX(0)' }, { transform: 'translateY(-50%) scaleX(1)' }], { duration: 900, delay: 150 + i * 90, easing: SOFT.easing, fill: 'backwards' }));
+}
+if (window.IntersectionObserver && !reduce) {
+  const rio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { rio.unobserve(e.target); playIn(e.target); } }), { rootMargin: '0px 0px -6% 0px' });
+  $$('[data-reveal]').forEach(el => { if (el.getBoundingClientRect().top > innerHeight) rio.observe(el); });
+}
+
+/* ---------- veredito: destaque que segue o cursor ---------- */
+hoverHighlight($('#verdict'), 'li');
+
+/* ---------- montador de trajeto e orçamento ---------- */
+const CATS = [
+  { k: 'aereo', n: 'Passagens (avião e ônibus)', c: 's1' }, { k: 'hosp', n: 'Hospedagem', c: 's2' }, { k: 'comida', n: 'Alimentação', c: 's3' },
+  { k: 'passeios', n: 'Passeios e transporte', c: 's4' }, { k: 'taxas', n: 'Seguro, IOF e reserva', c: 's5' }
+];
+const USD = 4.99; /* câmbio de 13/10 */
+const WDS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+const WDL = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+const wdOf = d => new Date(2026, 11, d).getDay();
+const hfmt = h => { const H = Math.floor(h), m = Math.round((h - H) * 60); return m ? H + 'h' + String(m).padStart(2, '0') : H + ' h'; };
+const fmtK = v => (v / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + ' mil';
+const noites = n => n + (n === 1 ? ' noite' : ' noites');
+/* custo do casal, ida e volta; h = horas por sentido; night = viaja de madrugada e chega no dia seguinte */
+const CARRO = { t: 'Carro', s: '4h45', mode: 'carro', h: 4.75, cost: 517, cat: 'passeios', park: 21 };
+const ACC = {
+  cwb: {
+    carro: Object.assign({ n: 'Carro Londrina–Curitiba ida e volta (388 km; pedágio R$ 64,59 e combustível R$ 194 por trecho)' }, CARRO),
+    exec: { t: 'Ônibus executivo', s: '06:30 ou 17:30', mode: 'ônibus', h: 6, cost: 4 * 174, uber: 1, min: 1, n: 'Ônibus executivo Garcia Londrina–Curitiba, 4 bilhetes de R$ 173,56' },
+    leito: { t: 'Leito-cama', s: '23:45 → 05:35', mode: 'leito-cama', h: 5.83, cost: 4 * 365, uber: 1, night: true, n: 'Ônibus leito-cama Garcia Londrina–Curitiba, 4 bilhetes de R$ 361 a 368' },
+    azul: { t: 'Avião Azul', s: 'ter, qui, sáb, dom', mode: 'avião', h: 1.08, cost: 4 * 339, min: 1, days: [0, 2, 4, 6], n: 'Voo Azul Londrina–Curitiba, 4 trechos de R$ 339' }
+  },
+  gru: {
+    aviao: { t: 'Avião LATAM', s: 'Londrina–GRU', mode: 'avião', h: 1.2, cost: 4 * 386, n: 'Voo LATAM Londrina–Guarulhos, 4 trechos de R$ 374 a 399' },
+    exec: { t: 'Ônibus executivo', s: '7h25 + Airport Bus', mode: 'ônibus', h: 8.4, cost: 4 * 147 + 4 * 54, night: true, n: 'Ônibus executivo Londrina–Barra Funda (4 × R$ 147) e Airport Bus até Guarulhos (4 × R$ 54)' },
+    leito: { t: 'Leito-cama', s: '6h45 + Airport Bus', mode: 'leito-cama', h: 7.75, cost: 4 * 330 + 4 * 54, night: true, n: 'Ônibus leito-cama Garcia Londrina–Barra Funda (4 × R$ 330) e Airport Bus até Guarulhos (4 × R$ 54)' }
+  },
+  ldb: {},
+  rodo: {
+    carro: Object.assign({ n: 'Carro Londrina–Curitiba ida e volta, parado na rodoviária (pedágio R$ 64,59 e combustível R$ 194 por trecho)' }, CARRO),
+    exec: { t: 'Ônibus executivo', s: '06:30 ou 17:30', mode: 'ônibus', h: 6, cost: 4 * 174, n: 'Ônibus executivo Garcia Londrina–Curitiba, 4 bilhetes de R$ 173,56' },
+    azul: { t: 'Avião Azul', s: 'ter, qui, sáb, dom', mode: 'avião', h: 1.08, cost: 4 * 339, uber: 1, days: [0, 2, 4, 6], n: 'Voo Azul Londrina–Curitiba, 4 trechos de R$ 339' }
+  }
+};
+const INTL = {
+  cwb: { t: 'Curitiba', s: 'voo direto', mode: 'avião', h: [2.5, 2.17], lo: 1790, hi: 2783, n: 'Aerolíneas Curitiba–Aeroparque, voo direto' },
+  gru: { t: 'São Paulo', s: 'GOL, de GRU', mode: 'avião', h: [3, 3], lo: 1456, hi: 1700, n: 'GOL Guarulhos–Aeroparque' },
+  ldb: { t: 'Londrina', s: 'LATAM, com escala', mode: 'avião com escala', h: [11, 11], hmax: 25, lo: 2279, hi: 2349, n: 'LATAM Londrina–Aeroparque, com escala (11 a 25 h)' },
+  rodo: { t: 'Ônibus', s: 'Curitiba–Retiro', mode: 'ônibus', h: [34.5, 34.5], lo: 2 * 957, hi: 2 * 1078, n: 'Ônibus JBL Curitiba–Retiro, semi-leito (leito-cama: R$ 1.078 por trecho)' }
+};
+const BRC = {
+  jet: { t: 'JetSMART', s: 'só bolsa', mode: 'avião', h: 2.33, v: [1226, 1226], n: 'JetSMART Buenos Aires–Bariloche ida e volta (R$ 613 por pessoa, só bolsa de 8 kg)' },
+  ar: { t: 'Aerolíneas', s: 'com mala', mode: 'avião', h: 2.33, v: [1400, 1400], n: 'Aéreo Buenos Aires–Bariloche ida e volta, com mala despachada' },
+  bus: { t: 'Ônibus', s: '24 h', mode: 'ônibus', h: 24, v: [Math.round(4 * 130 * USD), Math.round(4 * 165 * USD)], n: 'Ônibus leito Buenos Aires–Bariloche ida e volta (USD 130 a 165 por pessoa e trecho)' }
+};
+const TARIFA = { eco: { ba: 275, brc: 550, food: 190, cwb: 450 }, conf: { ba: 300, brc: 600, food: 225, cwb: 900 } };
+const PRESETS = [
+  { t: 'Curitiba + Buenos Aires', v: { ida: 15, emb: 'cwb', acesso: 'carro', cwbIda: 1, cwbVolta: 1, baN: 3, brcN: 0, brcModo: 'jet', nivel: 'eco', spa: false } },
+  { t: 'Com Bariloche, enxuta', v: { ida: 15, emb: 'cwb', acesso: 'carro', cwbIda: 1, cwbVolta: 0, baN: 2, brcN: 2, brcModo: 'jet', nivel: 'eco', spa: false } },
+  { t: 'Viagem completa', v: { ida: 15, emb: 'cwb', acesso: 'carro', cwbIda: 1, cwbVolta: 0, baN: 3, brcN: 3, brcModo: 'ar', nivel: 'conf', spa: true } },
+  { t: 'Tudo de ônibus', v: { ida: 15, emb: 'rodo', acesso: 'exec', cwbIda: 1, cwbVolta: 1, baN: 3, brcN: 0, brcModo: 'jet', nivel: 'eco', spa: false } }
+];
+const OPTS = { ida: [14, 15, 16], emb: Object.keys(INTL), cwbIda: [0, 1, 2], cwbVolta: [0, 1, 2], baN: [2, 3, 4], brcN: [0, 2, 3, 4], brcModo: Object.keys(BRC), nivel: ['eco', 'conf'] };
+const DEF = Object.assign({ land: false, teto: 8000 }, PRESETS[0].v);
+function fixTrip(t) {
+  const acc = ACC[t.emb];
+  if (!acc[t.acesso]) t.acesso = Object.keys(acc)[0] || null;
+  const A = acc[t.acesso];
+  if (t.emb === 'cwb' || t.emb === 'rodo') {
+    const minI = (t.emb === 'rodo' || (A && A.min)) ? 1 : 0, minV = t.emb === 'rodo' ? 1 : 0;
+    t.cwbIda = Math.max(minI, t.cwbIda); t.cwbVolta = Math.max(minV, t.cwbVolta);
+  }
+  return t;
+}
+function loadTrip() {
+  const s = store.get('rumo-frio-trajeto-v1', {}) || {}; const t = Object.assign({}, DEF);
+  Object.keys(DEF).forEach(k => { if (typeof s[k] === typeof DEF[k] && (!OPTS[k] || OPTS[k].includes(s[k]))) t[k] = s[k]; });
+  if (s.acesso && ACC[t.emb][s.acesso]) t.acesso = s.acesso;
+  t.teto = Math.min(16000, Math.max(6000, t.teto));
+  return fixTrip(t);
+}
+/* linha do tempo: todos os dias são de dezembro de 2026 */
+function plan(t) {
+  const A = ACC[t.emb][t.acesso] || null, cw = t.emb === 'cwb' || t.emb === 'rodo', bus = t.brcN > 0 && t.brcModo === 'bus';
+  const P = { A, cw, bus, ci: cw ? t.cwbIda : 0, cv: cw ? t.cwbVolta : 0, ida: t.ida, extra: 0 };
+  P.leave = t.ida - P.ci - (A && A.night ? 1 : 0);
+  P.arrBA = t.ida + (t.emb === 'rodo' ? 1 : 0);
+  let d = P.arrBA + t.baN;
+  if (t.brcN) {
+    P.toBRC = d; P.brcIn = d + (bus ? 1 : 0); P.brcOut = P.brcIn + t.brcN; P.backBA = P.brcOut + (bus ? 1 : 0);
+    P.extra = (bus || cw) ? 1 : 0;
+    d = P.backBA + P.extra;
+  }
+  P.dep = d;
+  P.brBack = d + (t.emb === 'rodo' ? 1 : 0);
+  P.home = P.brBack + P.cv + (A && A.night ? 1 : 0);
+  P.abroad = P.dep - P.arrBA + 1;
+  P.ins = P.brBack - t.ida + 1;
+  return P;
+}
+function buildItems(t, P) {
+  const R = TARIFA[t.nivel], A = P.A, I = INTL[t.emb], B = t.brcN ? BRC[t.brcModo] : null, conf = t.nivel === 'conf';
+  let lo = I.lo, hi = I.hi;
+  if (t.emb === 'cwb') { lo = t.ida === 16 ? 2783 : 1790; hi = Math.max(lo, P.dep > 21 ? 3082 : 2783); }
+  const it = [{ cat: 'aereo', n: I.n + ', ida e volta (R$ ' + fmt(lo) + ' por pessoa)', v: 2 * lo }];
+  if (A) it.push({ cat: A.cat || 'aereo', n: A.n + (A.park ? '; estacionamento por ' + P.ins + ' dias a R$ 21' : ''), v: A.cost + (A.park ? A.park * P.ins : 0) });
+  if (A && A.uber) it.push({ cat: 'passeios', n: 'Uber entre a rodoviária e o aeroporto de Curitiba, 2 trechos', v: 90 });
+  if (B) it.push({ cat: 'aereo', n: B.n, v: B.v[0] });
+  const ins = P.ins <= 4 ? 250 : P.ins <= 6 ? 300 : 300 + 75 * (P.ins - 6);
+  it.push({ cat: 'taxas', n: 'Seguro-viagem, ' + P.ins + ' dias', v: ins });
+  if (P.ci + P.cv) it.push({ cat: 'hosp', n: 'Curitiba, ' + noites(P.ci + P.cv) + ', hotel e refeições (R$ ' + fmt(R.cwb) + ' por dia)', v: R.cwb * (P.ci + P.cv) });
+  const baN = t.baN + P.extra;
+  const abroad = [
+    { cat: 'hosp', n: 'Buenos Aires, ' + noites(baN) + ', hotel em Recoleta (USD ' + R.ba / 5 + ')' + (P.extra ? '; inclui a noite antes da volta' : ''), v: R.ba * baN },
+    t.brcN ? { cat: 'hosp', n: 'Bariloche, ' + noites(t.brcN) + ', cabana com hidro privativa (USD ' + R.brc / 5 + ')', v: R.brc * t.brcN } : null,
+    { cat: 'comida', n: 'Alimentação na Argentina, ' + P.abroad + ' dias (USD ' + R.food / 5 + ' por dia' + (conf ? ', jantares em restaurante bom' : ', cozinha na cabana') + ')', v: R.food * P.abroad },
+    { cat: 'passeios', n: 'Transporte local (Uber, trem, ônibus 20, táxi)' + (conf && t.brcN ? ', com excursão ao Tronador ou a Villa La Angostura' : ''), v: conf && t.brcN ? 600 : 400 },
+    { cat: 'passeios', n: 'Passeios: Colón, Quebra-Nozes, MAT' + (t.brcN ? ', Campanario' : '') + (t.brcN && t.spa ? ', day spa no lago (2 × ARS 70.000)' : ''), v: 400 + (conf && t.brcN ? 245 : 0) + (t.brcN && t.spa ? 455 : 0) }
+  ].filter(Boolean);
+  it.push(...abroad);
+  if (conf) { const sub = it.reduce((a, b) => a + b.v, 0); it.push({ cat: 'taxas', n: 'IOF e reserva de 5% para imprevistos', v: Math.ceil(sub * 0.05 / 100) * 100 }); }
+  else { const gasto = abroad.reduce((a, b) => a + b.v, 0); it.push({ cat: 'taxas', n: 'IOF de 3,38% sobre cerca de R$ ' + fmt(gasto) + ' no cartão', v: Math.ceil(gasto * 0.0338 / 5) * 5 }); }
+  const items = t.land ? it.filter(x => x.cat !== 'aereo') : it;
+  const total = items.reduce((a, b) => a + b.v, 0);
+  const up = t.land ? 0 : 2 * (hi - lo) + (B ? B.v[1] - B.v[0] : 0);
+  return { items, total, hi: total + up, lo, hiPP: hi };
+}
+function chainOf(t, P) {
+  const A = P.A, I = INTL[t.emb], B = BRC[t.brcModo], out = [];
+  const stop = (n, s, k) => out.push('<li class="stop ' + k + '"><b>' + n + '</b><small>' + s + '</small></li>');
+  const leg = (m, h, long) => out.push('<li class="leg' + (long ? ' long' : '') + '">' + m + ' ' + h + ' →</li>');
+  const ih = I.hmax ? I.h[0] + ' a ' + I.hmax + ' h' : hfmt(I.h[0]);
+  stop('Londrina', 'sai ' + WDS[wdOf(P.leave)].toLowerCase() + ' ' + P.leave + '/12', 'calor');
+  if (A) leg(A.mode, hfmt(A.h), A.h >= 7);
+  if (t.emb === 'gru') stop('São Paulo', 'conexão', '');
+  if (P.cw) stop('Curitiba', P.ci ? noites(P.ci) : 'só passagem', 'morno');
+  leg(I.mode, ih, I.h[0] >= 10);
+  stop('Buenos Aires', noites(t.baN), 'calor');
+  if (t.brcN) {
+    leg(B.mode, hfmt(B.h), P.bus); stop('Bariloche', noites(t.brcN), 'frio'); leg(B.mode, hfmt(B.h), P.bus);
+    if (P.extra) stop('Buenos Aires', '1 noite', 'calor');
+  }
+  leg(I.mode, I.hmax ? ih : hfmt(I.h[1]), I.h[1] >= 10);
+  if (P.cw) stop('Curitiba', P.cv ? noites(P.cv) : 'só passagem', 'morno');
+  if (t.emb === 'gru') stop('São Paulo', 'conexão', '');
+  if (A) leg(A.mode, hfmt(A.h), A.h >= 7);
+  stop('Londrina', 'em casa ' + WDS[wdOf(P.home)].toLowerCase() + ' ' + P.home + '/12', 'calor');
+  const h = (A ? 2 * A.h + (A.uber ? 1 : 0) : 0) + I.h[0] + I.h[1] + (t.brcN ? 2 * B.h : 0);
+  const hmax = I.hmax ? h + 2 * (I.hmax - I.h[0]) : 0;
+  const busN = (A && A.night ? 2 : 0) + (t.emb === 'rodo' ? 2 : 0) + (P.bus ? 2 : 0);
+  const hours = '≈ ' + Math.round(h) + (hmax ? ' a ' + Math.round(hmax) : '') + ' h em trânsito, ida e volta' + (busN ? ' · ' + busN + ' noites dormindo no ônibus' : '') +
+    ' · de ' + P.leave + ' a ' + P.home + '/12 (' + (P.home - P.leave + 1) + ' dias)' + (P.home > 22 ? ' · <strong>volta depois de 22/12</strong>' : '');
+  return { html: out.join(''), hours };
+}
+function notesOf(t, P, r) {
+  const n = [], A = P.A;
+  if (t.emb === 'cwb') {
+    n.push('Voo direto às 08:50 (chega 11:20); a volta sai às 05:40 (chega 07:50).');
+    if (t.brcN) n.push('Por causa das 05:40, a última noite é em Buenos Aires: o voo de Bariloche chega na véspera.');
+    if (t.ida === 15) n.push('Não há tarifa cotada para 15/12: a conta usa a de 14/12 (R$ 1.790 por pessoa) e a faixa vai até a de 16/12 (R$ 2.783).');
+    if (r.hiPP === 3082) n.push('Voltando depois do dia 21, a tarifa vista foi de R$ 3.082 por pessoa (14 a 23/12).');
+  }
+  if (A && A.park && P.ci === 0) n.push('Sem noite em Curitiba, saiam de Londrina por volta das 03:00 para pegar o voo das 08:50.');
+  if (A && A.night && P.cw && P.ci === 0) n.push('O leito-cama sai de Londrina às 23:45 e chega às 05:35, a tempo do voo; Uber de 30 minutos até o aeroporto.');
+  if (A && A.days) {
+    const bad = [P.leave, P.home].filter(d => !A.days.includes(wdOf(d)));
+    if (bad.length) n.push('A Azul só voa entre Londrina e Curitiba às terças, quintas, sábados e domingos; ' + bad.map(d => 'dia ' + d + ' é ' + WDL[wdOf(d)]).join(' e ') + '. Mudem o dia ou as noites em Curitiba.');
+  }
+  if (t.emb === 'gru') n.push('São bilhetes separados: se o voo de Londrina atrasar, a GOL não remarca. Deixem folga grande entre os voos.' + (A && A.night ? ' O ônibus sai na noite anterior; o Airport Bus parte da Barra Funda a partir das 06:00.' : ''));
+  if (t.emb === 'ldb') n.push('Um bilhete só, mas de 11 a 25 horas de viagem por sentido, com escala.');
+  if (t.emb === 'rodo') n.push('O ônibus da JBL leva cerca de 34h30: sai de Curitiba às 04:05 e chega a Retiro às 14:30 do dia seguinte. Em outubro havia saídas às quintas e sábados (dia ' + t.ida + ' é ' + WDL[wdOf(t.ida)] + '); dezembro não foi consultado.');
+  if (P.bus) n.push('O ônibus a Bariloche leva 24 horas por sentido e, para o casal, sai mais caro que o avião. O plano já tinha descartado essa opção.');
+  if (t.brcN && t.baN === 2) n.push('Com 2 noites em Buenos Aires, o voo a Bariloche sai no fim da tarde, depois da visita ao Colón, e O Quebra-Nozes fica de fora.');
+  if (t.nivel === 'conf') n.push('Padrão confortável: hotel melhor, jantares em restaurante bom e 5% de reserva.');
+  if (t.land) n.push('Só os gastos em terra: sem passagens de avião ou de ônibus.');
+  return n.join(' ');
+}
+/* grupo de rádio com opções geradas: render(opções, valor) refaz os botões só quando elas mudam */
+function dynGroup(group, onChange) {
+  const h = highlight(group); let btns = [], key = '';
+  const select = (b, focus, silent) => {
+    btns.forEach(x => { const on = x === b; x.setAttribute('aria-checked', on ? 'true' : 'false'); x.tabIndex = on ? 0 : -1; });
+    h.place(b); if (focus) b.focus();
+    if (!silent && onChange) onChange(b.dataset.v);
+  };
+  group.addEventListener('click', e => { const b = e.target.closest('[role="radio"]'); if (b && !b.disabled && b.getAttribute('aria-checked') !== 'true') select(b); });
+  group.addEventListener('keydown', e => {
+    const live = btns.filter(x => !x.disabled), i = live.indexOf(e.target); if (i < 0) return;
+    let j = null;
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') j = (i + 1) % live.length;
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') j = (i - 1 + live.length) % live.length;
+    else if (e.key === 'Home') j = 0; else if (e.key === 'End') j = live.length - 1;
+    if (j !== null) { e.preventDefault(); select(live[j], true); }
+  });
+  return {
+    render(opts, v) {
+      const k = JSON.stringify(opts);
+      if (k !== key) {
+        key = k; btns.forEach(b => b.remove());
+        btns = opts.map(o => { const b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'radio'); b.dataset.v = o.v; b.disabled = !!o.off; b.innerHTML = o.t + (o.s ? '<small>' + o.s + '</small>' : ''); group.appendChild(b); return b; });
+      }
+      const b = btns.find(x => x.dataset.v === String(v)) || btns.find(x => !x.disabled);
+      if (b) select(b, false, true);
+    }
+  };
+}
+const trip = loadTrip();
+const TRIP_HOOKS = []; /* roteiro e calendário se registram aqui */
+const NUMK = ['ida', 'cwbIda', 'cwbVolta', 'baN', 'brcN'];
+const G = {};
+['ida', 'emb', 'acesso', 'cwbIda', 'cwbVolta', 'baN', 'brcN', 'brcModo', 'nivel'].forEach(k => {
+  G[k] = dynGroup($('#g-' + k), v => { trip[k] = NUMK.includes(k) ? Number(v) : v; renderSim(); });
+});
+function renderControls(t) {
+  const cw = t.emb === 'cwb' || t.emb === 'rodo', A = ACC[t.emb][t.acesso];
+  const minI = cw && (t.emb === 'rodo' || (A && A.min)) ? 1 : 0, minV = t.emb === 'rodo' ? 1 : 0;
+  $('#f-acesso').hidden = t.emb === 'ldb';
+  $('#l-acesso').textContent = t.emb === 'gru' ? 'De Londrina a Guarulhos' : 'De Londrina a Curitiba';
+  $('#f-cwb').hidden = !cw;
+  $('#f-brcModo').hidden = !t.brcN;
+  G.ida.render(OPTS.ida.map(d => ({ v: d, t: d + '/12', s: WDL[wdOf(d)] })), t.ida);
+  G.emb.render(OPTS.emb.map(k => ({ v: k, t: INTL[k].t, s: INTL[k].s })), t.emb);
+  G.acesso.render(Object.keys(ACC[t.emb]).map(k => ({ v: k, t: ACC[t.emb][k].t, s: ACC[t.emb][k].s })), t.acesso);
+  G.cwbIda.render(OPTS.cwbIda.map(n => ({ v: n, t: String(n), off: n < minI })), t.cwbIda);
+  G.cwbVolta.render(OPTS.cwbVolta.map(n => ({ v: n, t: String(n), off: n < minV })), t.cwbVolta);
+  G.baN.render(OPTS.baN.map(n => ({ v: n, t: String(n) })), t.baN);
+  G.brcN.render(OPTS.brcN.map(n => ({ v: n, t: n ? String(n) : 'Sem' })), t.brcN);
+  G.brcModo.render(OPTS.brcModo.map(k => ({ v: k, t: BRC[k].t, s: BRC[k].s })), t.brcModo);
+  G.nivel.render([{ v: 'eco', t: 'Econômico', s: 'USD 55 e 110' }, { v: 'conf', t: 'Confortável', s: 'USD 60 e 120' }], t.nivel);
+  const sw = $('#sw-spa'); sw.disabled = !t.brcN; sw.setAttribute('aria-checked', t.spa ? 'true' : 'false');
+  $('#sw-land').setAttribute('aria-checked', t.land ? 'true' : 'false');
+}
+const presetsEl = $('#sim-presets');
+presetsEl.innerHTML = PRESETS.map((p, i) => '<button class="chip" type="button" aria-pressed="false" data-p="' + i + '">' + p.t + '<small></small></button>').join('');
+$$('.chip', presetsEl).forEach(b => b.addEventListener('click', () => { Object.assign(trip, PRESETS[b.dataset.p].v); renderSim(); }));
+const segEls = {}; $$('.bseg').forEach(el => { segEls[el.dataset.cat] = el; });
+const legend = $('#sim-legend');
+legend.innerHTML = CATS.map(c => '<li data-cat="' + c.k + '"><span class="sw" style="background:var(--' + c.c + ')"></span>' + c.n + '<span class="lv">R$ <span data-lv="' + c.k + '">0</span></span></li>').join('');
+const ceil = $('#sim-ceil'), ceilLabel = ceil.firstElementChild;
+let SCALE = 0;
+function renderSim() {
+  fixTrip(trip);
+  renderControls(trip);
+  const P = plan(trip), r = buildItems(trip, P), items = r.items, total = r.total;
+  slide($('#sim-total'), fmt(total));
+  $('#sim-range').textContent = r.hi > total ? 'até R$ ' + fmt(r.hi) + ' com as tarifas mais altas vistas para essas datas' : trip.land ? 'sem nenhuma passagem' : 'com as tarifas vistas em 13/10';
+  const v = $('#sim-verdict'), diff = trip.teto - total;
+  if (r.hi <= trip.teto) { v.className = 'vchip ok'; v.innerHTML = ICON.ok + ' Cabe no teto. Sobram R$ ' + fmt(diff) + '.'; }
+  else if (diff >= 0) { v.className = 'vchip warn'; v.innerHTML = ICON.warn + ' Cabe com a tarifa mínima. Com a mais alta, passa R$ ' + fmt(r.hi - trip.teto) + '.'; }
+  else { v.className = 'vchip over'; v.innerHTML = ICON.over + ' Passa do teto em R$ ' + fmt(-diff) + '.'; }
+  const ch = chainOf(trip, P);
+  $('#sim-chain').innerHTML = ch.html; $('#sim-hours').innerHTML = ch.hours;
+  const sc = Math.max(14000, Math.ceil(Math.max(total, trip.teto) / 2000) * 2000);
+  if (sc !== SCALE) {
+    SCALE = sc; const n = SCALE / 2000;
+    $('#sim-axis').innerHTML = Array.from({ length: n + 1 }, (_, i) => '<span' + (i % 2 ? ' class="ax-m"' : '') + ' style="left:' + (i / n * 100) + '%">' + (i ? 2 * i + ' mil' : '0') + '</span>').join('');
+    $('#sim-bar').setAttribute('aria-label', 'Composição do total por categoria, numa escala de 0 a ' + SCALE / 1000 + ' mil reais');
+  }
+  let acc = 0;
+  CATS.forEach(c => {
+    const val = items.filter(i => i.cat === c.k).reduce((a, b) => a + b.v, 0);
+    const el = segEls[c.k];
+    el.style.left = (acc / SCALE * 100) + '%'; el.style.width = (val / SCALE * 100) + '%';
+    el.dataset.tip = c.n + ': R$ ' + fmt(val) + (val ? ' (' + Math.round(val / total * 100) + '% do total)' : '');
+    acc += val;
+    slide(legend.querySelector('[data-lv="' + c.k + '"]'), fmt(val));
+    legend.querySelector('[data-cat="' + c.k + '"]').classList.toggle('zero', !val);
+  });
+  const cp = Math.min(100, trip.teto / SCALE * 100);
+  ceil.style.left = cp + '%';
+  ceilLabel.style.transform = cp > 86 ? 'translateX(-100%)' : cp < 12 ? 'translateX(0)' : 'translateX(-50%)';
+  ceilLabel.textContent = 'teto R$ ' + fmt(trip.teto);
+  $('#teto-out').textContent = 'R$ ' + fmt(trip.teto); $('#teto').value = trip.teto;
+  $('#sim-items').innerHTML = items.map(i => '<tr><td><span class="sw" style="background:var(--' + CATS.find(c => c.k === i.cat).c + ')"></span>' + i.n + '</td><td class="num">' + fmt(i.v) + '</td></tr>').join('') +
+    '<tr class="tot"><td>Total</td><td class="num">' + fmt(total) + '</td></tr>';
+  $('#sim-note').textContent = notesOf(trip, P, r);
+  $$('.chip', presetsEl).forEach(b => {
+    const p = PRESETS[b.dataset.p], tt = fixTrip(Object.assign({}, trip, p.v)), pp = plan(tt), pr = buildItems(tt, pp);
+    b.querySelector('small').textContent = 'R$ ' + fmtK(pr.total) + ' · ' + pp.leave + ' a ' + pp.home + '/12';
+    b.setAttribute('aria-pressed', Object.keys(p.v).every(k => trip[k] === p.v[k]) ? 'true' : 'false');
+  });
+  store.set('rumo-frio-trajeto-v1', trip);
+  TRIP_HOOKS.forEach(f => f(P));
+}
+makeSwitch($('#sw-spa'), on => { trip.spa = on; renderSim(); });
+makeSwitch($('#sw-land'), on => { trip.land = on; renderSim(); });
+$('#teto').addEventListener('input', e => { trip.teto = Number(e.target.value); renderSim(); });
+renderSim();
+
+/* ---------- caminhos de Londrina (seção Curitiba), das mesmas tabelas do montador ---------- */
+const viasEl = $('#vias');
+const VIAS = [].concat(...Object.keys(INTL).map(e => { const ks = Object.keys(ACC[e]); return (ks.length ? ks : [null]).map(a => ({ e, a })); }));
+viasEl.innerHTML = VIAS.map(({ e, a }, i) => {
+  const I = INTL[e], A = a ? ACC[e][a] : null;
+  const v = 2 * I.lo + (A ? A.cost + (A.uber ? 90 : 0) : 0), h = (A ? A.h : 0) + I.h[0];
+  const como = e === 'rodo' ? A.t + ' até Curitiba + ônibus JBL' : A ? A.t + ' + ' + I.s : I.s;
+  return '<tr><td><b>' + (e === 'rodo' ? 'Ônibus' : I.t) + '</b> · ' + como + (A && A.park ? '<small class="note">mais R$ 21 por dia de estacionamento</small>' : '') + '</td>' +
+    '<td class="num">' + (I.hmax ? hfmt(h) + ' a ' + hfmt(I.hmax) : hfmt(h)) + '</td><td class="num">R$ ' + fmt(v) + '</td>' +
+    '<td><button class="btn btn-ghost btn-sm" type="button" data-i="' + i + '" aria-pressed="false" aria-label="Usar no montador: ' + I.t + ', ' + como + '">Usar</button></td></tr>';
+}).join('');
+viasEl.addEventListener('click', ev => {
+  const b = ev.target.closest('button'); if (!b) return;
+  const { e, a } = VIAS[b.dataset.i]; trip.emb = e; if (a) trip.acesso = a;
+  renderSim();
+  $('#orcamento').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+});
+const markVia = () => $$('button', viasEl).forEach(b => { const { e, a } = VIAS[b.dataset.i]; const on = trip.emb === e && (!a || trip.acesso === a); b.setAttribute('aria-pressed', on ? 'true' : 'false'); b.textContent = on ? 'Em uso' : 'Usar'; });
+TRIP_HOOKS.push(markVia); markVia();
+
+/* ---------- escola ---------- */
+[['#cd-mail', 2026, 10, 1], ['#cd-visit', 2026, 11, 16], ['#cd-end', 2026, 11, 22]].forEach(([sel, y, m, d]) => {
+  const n = daysUntil(y, m, d); const el = $(sel);
+  if (n < 0) { el.textContent = '—'; return; }
+  el.dataset.count = n; el.textContent = fmt(n); countUp(el, 200);
+});
+(function tabs() {
+  const list = $('#tabs-trans'); const tabsEl = $$('[role="tab"]', list); const h = highlight(list, { underline: true });
+  const sel = (t, focus) => {
+    tabsEl.forEach(x => {
+      const on = x === t; x.setAttribute('aria-selected', on ? 'true' : 'false'); x.tabIndex = on ? 0 : -1;
+      const p = document.getElementById(x.getAttribute('aria-controls'));
+      if (on && p.hidden) { p.hidden = false; anim(p, [{ opacity: 0, transform: 'translateY(8px)', filter: 'blur(4px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: SOFT.ms, easing: SOFT.easing }); }
+      else if (!on) p.hidden = true;
+    });
+    h.place(t); if (focus) t.focus();
+  };
+  tabsEl.forEach((t, i) => {
+    t.type = 'button';
+    t.addEventListener('click', () => sel(t));
+    t.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); sel(tabsEl[(i + 1) % tabsEl.length], true); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); sel(tabsEl[(i - 1 + tabsEl.length) % tabsEl.length], true); }
+    });
+  });
+  sel(tabsEl[0]); h.place(tabsEl[0], true);
+})();
+$('#copy-btn').addEventListener('click', () => {
+  const btn = $('#copy-btn'), label = $('#copy-label'), text = $('#letter').innerText;
+  const done = msg => { btn.classList.add('done'); label.textContent = msg; clearTimeout(btn._t); btn._t = setTimeout(() => { btn.classList.remove('done'); label.textContent = 'Copiar texto'; }, 2400); };
+  const fallback = () => { const r = document.createRange(); r.selectNodeContents($('#letter')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); label.textContent = 'Texto selecionado: use Ctrl+C'; };
+  if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => done('Copiado'), fallback);
+  else fallback();
+});
+
+/* ---------- roteiro: sai do mesmo trajeto do montador ---------- */
+const LOCI = {
+  ldb: { n: 'Londrina', c: 'var(--heat)', temp: '20 a 31 °C em média' },
+  cwb: { n: 'Curitiba', c: 'var(--pine)', temp: '16,7 a 26,7 °C em média' },
+  gru: { n: 'São Paulo', c: 'var(--muted)', temp: '' },
+  via: { n: 'Em trânsito', c: 'var(--muted)', temp: '' },
+  ba: { n: 'Buenos Aires', c: 'var(--heat)', temp: '18,5 a 29 °C em média' },
+  tigre: { n: 'Tigre e General Pacheco', c: 'var(--heat)', temp: 'como Buenos Aires: 18,5 a 29 °C' },
+  brc: { n: 'Bariloche', c: 'var(--lake)', temp: '5,9 a 20,7 °C em média' }
+};
+const KIND = { brc: ['conf', 'frio'], cwb: ['morno', 'ameno'], via: ['', 'trânsito'], gru: ['', 'trânsito'] };
+const ACC_TXT = {
+  carro: { go: ['Carro de Londrina a Curitiba (cerca de 4h45)'], back: ['Carro de volta a Londrina (cerca de 4h45)'] },
+  exec: { go: ['06:30: ônibus executivo Garcia de Londrina a Curitiba (cerca de 6 h)'], back: ['Ônibus executivo Garcia de volta a Londrina (cerca de 6 h)'] },
+  leito: { go: ['23:45: leito-cama Garcia sai de Londrina', '05:35: chegada a Curitiba'], back: ['Noite: leito-cama Garcia de volta a Londrina', 'Chegada a Londrina de manhã cedo'] },
+  azul: { go: ['Voo Azul Londrina → Curitiba, das 14:50 às 15:55'], back: ['Voo Azul Curitiba → Londrina (horário a confirmar)'] }
+};
+const GRU_TXT = {
+  aviao: { go: ['Cedo: voo LATAM Londrina → Guarulhos'], back: ['Voo LATAM Guarulhos → Londrina'] },
+  exec: { go: ['Noite: ônibus executivo de Londrina à Barra Funda (7h25)', 'A partir das 06:00: Airport Bus até Guarulhos (cerca de 1 h)'], back: ['Airport Bus até a Barra Funda e ônibus noturno para Londrina', 'Chegada a Londrina de manhã'] },
+  leito: { go: ['Noite: leito-cama Garcia de Londrina à Barra Funda (6h45)', 'A partir das 06:00: Airport Bus até Guarulhos (cerca de 1 h)'], back: ['Airport Bus até a Barra Funda e leito-cama noturno para Londrina', 'Chegada a Londrina de manhã'] }
+};
+const IN_TXT = {
+  cwb: { go: '08:50: voo direto Curitiba → Aeroparque; chegada às 11:20', back: '05:40: voo Aeroparque → Curitiba; chegada às 07:50' },
+  gru: { go: 'Voo GOL Guarulhos → Aeroparque (cerca de 3 h)', back: 'Voo GOL Aeroparque → Guarulhos (cerca de 3 h)' },
+  ldb: { go: 'Voo LATAM Londrina → Aeroparque, com escala (11 a 25 h)', back: 'Voo LATAM Aeroparque → Londrina, com escala (11 a 25 h)' }
+};
+function cwbCard(d, chegada) {
+  const s = [(chegada ? 'Se der tempo: ' : '') + 'Museu Oscar Niemeyer (R$ 36) e Ópera de Arame'];
+  if (d === 16) s.push('Noite: Camerata Antiqua de Curitiba no Teatro Positivo (a confirmar)');
+  if (d >= 18 && d <= 20) s.push('20h15: Natal do Palácio Avenida, coral nas janelas, ao ar livre na Rua XV');
+  s.push('Noite: hotel com hidro (Novotel Batel, em algumas suítes)');
+  return { w: 2, loc: 'cwb', t: d >= 18 && d <= 20 ? 'Curitiba e o Natal do Palácio Avenida' : d === 16 ? 'Curitiba e a Camerata' : 'Dia em Curitiba', steps: s, note: 'Curitiba em dezembro: máxima média de 26,7 °C, chuva à tarde.' };
+}
+const chegaBA = plane => ({ w: 2, loc: 'ba', t: 'Chegada a Buenos Aires', steps: ['Check-in em Recoleta', 'Tarde: El Ateneo Grand Splendid (grátis)', 'Cemitério da Recoleta (cerca de ARS 19.000 para estrangeiros)', 'Fachada do Kavanagh e Plaza San Martín'], note: (plane ? 'Chegar por Aeroparque evita 1 hora de Ezeiza. ' : '') + 'Evitar rua ao sol das 12h às 16h.' });
+function baProg(k, d, st) {
+  if (k === 'tigre') return { w: 2, loc: 'tigre', route: ['ba-tigre'], t: 'Escola e Tigre', steps: ['8h: Uber até General Pacheco (45 a 60 min)', 'Visita ao Jardín Fabulinus, combinada antes', 'Almoço em Tigre', '13h: Museo de Arte Tigre', 'Paseo Victorica; lancha pelo Delta se o rio permitir', 'Volta de trem Mitre'], note: 'Dia inteiro em Tigre; noite tranquila.', b: 'Rio alto ou chuva forte: troquem a lancha e o Paseo Victorica pelo Museo de Arte Tigre, que fica na barranca alta. Uma semana antes, vejam as alturas do rio em ina.gob.ar e os alertas em smn.gob.ar. A escola fica em terra firme, longe das ilhas.' };
+  if (k === 'colon') { st.qn = d >= 17; return { w: 2, loc: 'ba', t: 'Teatro Colón', steps: ['11h45: visita guiada ao Colón em português (ARS 34.000 por pessoa)', 'Tarde: Palacio de Aguas Corrientes (grátis) ou Palacio Barolo (cerca de ARS 38.000, reservar)', d >= 17 ? 'Noite: O Quebra-Nozes no Colón (temporada de 17 a 30/12; confirmar récita no dia ' + d + ')' : 'Noite livre: O Quebra-Nozes só estreia no dia 17'], note: 'O Colón não vende em moeda estrangeira: cartão ou pesos.' }; }
+  let noite = 'Noite: jantar cedo perto do hotel';
+  if (d >= 17 && !st.qn) { noite = 'Noite: O Quebra-Nozes no Colón (confirmar récita no dia ' + d + ')'; st.qn = true; }
+  else if ([19, 20, 22].includes(d)) noite = 'Noite: Un sueño navideño, no Colón';
+  return { w: 2, loc: 'ba', t: 'Dia livre em Buenos Aires', steps: ['Manhã: o que ficou de fora em Recoleta ou no Centro', 'Das 12h às 16h, dentro de casa: café, museu ou descanso no hotel', noite], note: 'Folga contra o calor.' };
+}
+function brcProg(k, d, spa) {
+  if (k === 'chico') return { w: 2, loc: 'brc', t: 'Circuito Chico', steps: ['Teleférico do Cerro Campanario', 'Hotel Llao Llao e Capilla San Eduardo', 'Trilhas do Parque Municipal Llao Llao'].concat(wdOf(d) === 6 ? ['Feira de Colonia Suiza (sábado)'] : [], ['Jantar: Las Morillas (reservar)']), note: 'O ônibus 20 faz todo o circuito.' };
+  if (k === 'spa') return spa
+    ? { w: 2, loc: 'brc', t: 'Dia de spa', steps: ['Day spa com hidro de frente para o lago: Acqua Spa, 4 horas, ARS 70.000 por pessoa', 'Ou Huinid Spa: ARS 117.500 com massagem de 50 minutos', 'Tarde: Lago Gutiérrez e Cascada de los Duendes'], note: 'Dia de descanso de propósito.' }
+    : { w: 2, loc: 'brc', t: 'Dia de descanso', steps: ['Manhã na cabana, com a hidro', 'Tarde: Lago Gutiérrez e Cascada de los Duendes'], note: 'Dia de descanso de propósito. O day spa no lago está desligado no orçamento.' };
+  if (k === 'tronador') return { w: 2, loc: 'brc', t: 'Tronador ou Villa La Angostura', steps: ['Excursão ao Tronador e ao Ventisquero Negro (dia inteiro)', 'Ou bate-volta a Villa La Angostura'], note: 'Dia flexível: decidam pela previsão.', b: 'Chuva ou vento forte: chocolaterias, Museo de la Patagonia e a hidro da cabana. A excursão ao Tronador pode ser cancelada pelo clima.' };
+  return { w: 2, loc: 'brc', t: 'Dia livre em Bariloche', steps: ['Centro Cívico, chocolaterias e Museo de la Patagonia', 'Fim de tarde: hidro da cabana'], note: 'Sem programa: guardem para o dia de tempo bom.' };
+}
+function buildDays(tr, P) {
+  const A = P.A, parts = {}, st = { qn: false };
+  const put = (d, p) => (parts[d] = parts[d] || []).push(p);
+  const hub = P.cw ? 'cwb' : 'gru';
+  const accR = P.cw ? 'ldb-cwb' : 'ldb-gru', inR = P.cw ? ['cwb-ba'] : tr.emb === 'gru' ? ['gru-ba'] : ['ldb-gru', 'gru-ba'];
+  const tx = A ? (P.cw ? ACC_TXT : GRU_TXT)[tr.acesso] : null;
+  /* saída de Londrina */
+  let d = P.leave;
+  if (A && A.night) { put(d, { w: 1, loc: 'ldb', t: 'Saída à noite', steps: [tx.go[0]] }); d++; put(d, { w: 0, loc: hub, route: [accR], t: 'Chegada', steps: [tx.go[1]] }); }
+  else if (A) put(d, { w: 0, loc: hub, route: [accR], t: P.cw ? 'Viagem a Curitiba' : 'Viagem a São Paulo', steps: tx.go.slice() });
+  /* noites em Curitiba na ida */
+  for (let x = tr.ida - P.ci; x < tr.ida; x++) put(x, cwbCard(x, x === P.leave));
+  /* trecho internacional de ida */
+  if (tr.emb === 'rodo') {
+    put(tr.ida, { w: 1, loc: 'via', node: 'ba', route: ['cwb-ba'], t: 'Ônibus para Buenos Aires', steps: ['04:05: ônibus JBL sai da rodoferroviária de Curitiba', 'Dia e noite na estrada'], note: 'Cerca de 34h30 de viagem, com chegada no dia seguinte.' });
+    put(P.arrBA, { w: 0, loc: 'ba', steps: ['14:30: chegada ao terminal de Retiro'] });
+  } else put(tr.ida, { w: 0, loc: 'ba', route: inR, steps: [IN_TXT[tr.emb].go] });
+  /* Buenos Aires */
+  put(P.arrBA, chegaBA(tr.emb !== 'rodo'));
+  const v17 = tr.brcN && !P.bus && tr.baN === 2;
+  const seqBA = ['tigre', 'colon'];
+  let k = 0;
+  for (let x = P.arrBA + 1; x < P.arrBA + tr.baN; x++) put(x, baProg(seqBA[k++] || 'livre', x, st));
+  /* Bariloche */
+  if (tr.brcN) {
+    if (P.bus) {
+      put(P.toBRC, { w: 1, loc: 'via', node: 'brc', route: ['ba-brc'], t: 'Ônibus para Bariloche', steps: ['Ônibus leito Retiro → Bariloche, cerca de 24 horas (horário a confirmar)', 'Noite no ônibus'], note: 'Levem lanche e agasalho: a chegada é no dia seguinte.' + (tr.baN === 2 ? ' Com 2 noites em Buenos Aires, o Colón fica de fora.' : '') });
+      put(P.brcIn, { w: 2, loc: 'brc', t: 'Chegada a Bariloche', steps: ['Chegada à rodoviária de Bariloche', 'Check-in na cabana no Circuito Chico', 'Mercado para abastecer a cozinha', 'Noite: hidro'], note: 'Primeiro contato com o frio: casaco à mão.' });
+    } else if (v17) put(P.toBRC, { w: 2, loc: 'brc', route: ['ba-brc'], t: 'Colón e voo para Bariloche', steps: ['11h45: visita guiada ao Colón em português (ARS 34.000 por pessoa)', 'Fim da tarde: voo Aeroparque → Bariloche', 'Check-in na cabana no Circuito Chico'], note: 'Nesta versão vocês perdem O Quebra-Nozes.' });
+    else put(P.toBRC, { w: 2, loc: 'brc', route: ['ba-brc'], t: 'Voo para Bariloche', steps: ['Manhã: voo Aeroparque → Bariloche (cerca de 2h20)', 'Check-in na cabana no Circuito Chico', 'Tarde: Centro Cívico, Catedral, Museo de la Patagonia', 'Mercado para abastecer a cozinha', 'Noite: hidro'], note: 'Do aeroporto, táxi por cerca de USD 15–20 ou ônibus 72 com SUBE.' });
+    const seqB = ['chico', 'spa', 'tronador'];
+    k = 0;
+    for (let x = P.brcIn + 1; x < P.brcOut; x++) put(x, brcProg(seqB[k++] || 'livre', x, tr.spa));
+    if (P.bus) {
+      put(P.brcOut, { w: 1, loc: 'via', node: 'ba', route: ['ba-brc'], t: 'Ônibus de volta a Buenos Aires', steps: ['Manhã livre em Bariloche', 'Ônibus leito Bariloche → Retiro, cerca de 24 horas', 'Noite no ônibus'] });
+      put(P.backBA, { w: 2, loc: 'ba', t: 'De volta a Buenos Aires', steps: ['Chegada a Retiro', 'Noite em Recoleta'] });
+    } else if (P.extra) put(P.brcOut, { w: 2, loc: 'ba', route: ['ba-brc'], t: 'Volta a Buenos Aires', steps: ['Manhã livre em Bariloche', 'Voo Bariloche → Aeroparque (cerca de 2h20)', 'Noite perto do Aeroparque'] });
+    else put(P.brcOut, { w: 1, loc: 'via', node: 'ba', route: ['ba-brc'], t: 'Volta para casa', steps: ['Voo Bariloche → Aeroparque (cerca de 2h20)'] });
+  }
+  if (tr.emb === 'cwb') put(P.dep - 1, { w: 0, loc: ((parts[P.dep - 1] || []).slice(-1)[0] || { loc: 'ba' }).loc, steps: ['Malas prontas: o voo para Curitiba sai às 05:40 do dia seguinte'] });
+  /* trecho internacional de volta */
+  if (tr.emb === 'rodo') {
+    put(P.dep, { w: 1, loc: 'via', node: 'cwb', route: ['cwb-ba'], t: 'Ônibus de volta', steps: ['Ônibus JBL Retiro → Curitiba, cerca de 34h30 (horário a confirmar)', 'Noite no ônibus'] });
+    put(P.brBack, { w: 0, loc: 'cwb', steps: ['Chegada à rodoferroviária de Curitiba'] });
+  } else put(P.dep, { w: 0, loc: tr.emb === 'ldb' ? 'ldb' : hub, route: inR, t: 'Volta ao Brasil', steps: [IN_TXT[tr.emb].back] });
+  /* noites em Curitiba na volta */
+  for (let x = P.brBack; x < P.brBack + P.cv; x++) put(x, cwbCard(x, false));
+  /* volta a Londrina */
+  const back = P.brBack + P.cv;
+  if (A && A.night) { put(back, { w: 1, loc: 'via', node: 'ldb', route: [accR], t: 'Volta à noite', steps: [tx.back[0]] }); put(P.home, { w: 1, loc: 'ldb', t: 'Em casa', steps: [tx.back[1]] }); }
+  else if (A) put(back, { w: 1, loc: 'ldb', route: [accR], t: 'Volta a Londrina', steps: tx.back.slice() });
+  else put(P.dep, { w: 1, loc: 'ldb', t: 'Volta a Londrina', steps: ['Chegada a Londrina'] });
+  return Object.keys(parts).map(Number).sort((a, b) => a - b).map(x => {
+    const ps = parts[x], main = ps.reduce((a, b) => b.w > a.w ? b : a), last = ps[ps.length - 1];
+    return { d: x, wd: wdOf(x), loc: main.loc, node: last.node || last.loc, t: main.t, route: [].concat(...ps.map(p => p.route || [])), steps: [].concat(...ps.map(p => p.steps || [])), note: ps.map(p => p.note).filter(Boolean).join(' '), b: (ps.find(p => p.b) || {}).b };
+  });
+}
+const NODES = { ldb: [406, 37], cwb: [432, 67], gru: [470, 40], ba: [305, 195], tigre: [284, 168], brc: [124, 286] };
+let ADJ = {};
+const setAdj = emb => { const h = emb === 'gru' || emb === 'ldb' ? ['gru', 'cwb'] : ['cwb', 'gru']; ADJ = { ldb: h, cwb: ['ldb', 'ba'], gru: ['ldb', 'ba'], ba: h.concat(['tigre', 'brc']), tigre: ['ba'], brc: ['ba'] }; };
+const marker = $('#marker');
+let markerAt = null, moveTok = null, curDay = 0, DAYS = [], daysKey = '';
+const setMarker = (x, y) => marker.setAttribute('transform', 'translate(' + x + ' ' + y + ')');
+function pathNodes(a, b) {
+  const prev = { [a]: null }; const q = [a];
+  while (q.length) { const n = q.shift(); for (const m of ADJ[n]) if (!(m in prev)) { prev[m] = n; q.push(m); } }
+  const out = [b]; let c = b; while (prev[c] != null) { c = prev[c]; out.unshift(c); } return out;
+}
+function edgeEl(a, b) { const f = document.getElementById('r-' + a + '-' + b); return f ? { el: f, rev: false } : { el: document.getElementById('r-' + b + '-' + a), rev: true }; }
+function travel(path, rev, tok) {
+  return new Promise(res => {
+    const L = path.getTotalLength(); const dur = reduce ? 0 : Math.max(450, L * 3); const t0 = performance.now();
+    const f = now => {
+      if (moveTok !== tok) return res();
+      const t = dur ? Math.min(1, (now - t0) / dur) : 1; const e = t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+      const p = path.getPointAtLength((rev ? 1 - e : e) * L); setMarker(p.x, p.y);
+      if (t < 1) requestAnimationFrame(f); else res();
+    };
+    requestAnimationFrame(f);
+  });
+}
+async function moveMarker(to) {
+  if (!markerAt) { markerAt = to; setMarker(NODES[to][0], NODES[to][1]); return; }
+  const nodes = pathNodes(markerAt, to); markerAt = to; const tok = {}; moveTok = tok;
+  for (let i = 0; i < nodes.length - 1; i++) { const { el, rev } = edgeEl(nodes[i], nodes[i + 1]); await travel(el, rev, tok); if (moveTok !== tok) return; }
+  setMarker(NODES[to][0], NODES[to][1]);
+}
+function drawRoutes(route) {
+  $$('.rt').forEach(p => {
+    const on = route.includes(p.id.slice(2));
+    if (on && !p.classList.contains('on')) {
+      p.classList.add('on');
+      const L = p.getTotalLength();
+      anim(p, [{ strokeDasharray: L + ' ' + L, strokeDashoffset: L }, { strokeDasharray: L + ' ' + L, strokeDashoffset: 0 }], { duration: 900, easing: 'cubic-bezier(.65,0,.35,1)' });
+    } else if (!on) p.classList.remove('on');
+  });
+  $$('.mp-node').forEach(n => n.classList.remove('on'));
+}
+const daysEl = $('#days'); const dayHL = highlight(daysEl); const panel = $('#day-panel');
+const cap = s => s.charAt(0).toUpperCase() + s.slice(1);
+function renderDays() {
+  $$('.day', daysEl).forEach(b => b.remove());
+  DAYS.forEach((d, i) => {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'day'; b.setAttribute('role', 'tab');
+    b.id = 'day-' + i; b.setAttribute('aria-controls', 'day-panel');
+    b.innerHTML = '<small>' + WDS[d.wd] + '</small><b>' + d.d + '</b><i style="background:' + LOCI[d.loc].c + '"></i>';
+    b.setAttribute('aria-label', cap(WDL[d.wd]) + ', ' + d.d + ' de dezembro: ' + d.t);
+    b.addEventListener('click', () => selectDay(i));
+    b.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); selectDay(Math.min(DAYS.length - 1, i + 1), true); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); selectDay(Math.max(0, i - 1), true); }
+    });
+    daysEl.appendChild(b);
+  });
+}
+function dayTpl(d) {
+  const L = LOCI[d.loc], K = KIND[d.loc] || ['heat', 'calor'];
+  return '<div class="dp"><div class="dp-top"><div><h3>' + cap(WDL[d.wd]) + ', ' + d.d + ' de dezembro</h3><p class="dp-loc">' + d.t + ' · ' + L.n + (L.temp ? ' · ' + L.temp : '') + '</p></div>' +
+    '<span class="tag ' + K[0] + '">' + K[1] + '</span></div>' +
+    '<ul class="dp-steps">' + d.steps.map(s => '<li><span>' + s + '</span></li>').join('') + '</ul>' +
+    (d.note ? '<p class="dp-note">' + d.note + '</p>' : '') +
+    (d.b ? '<div class="dp-b"><div class="sw-row"><button class="switch" id="sw-b" role="switch" aria-checked="false" type="button" aria-controls="dp-bbox"><span class="thumb"></span></button><label for="sw-b">Plano B para chuva ou rio alto</label></div><div class="dp-bbox" id="dp-bbox" hidden>' + d.b + '</div></div>' : '') +
+    '</div>';
+}
+function selectDay(i, focus) {
+  const d = DAYS[i]; const dir = i >= curDay ? 1 : -1; curDay = i;
+  $$('.day', daysEl).forEach((b, j) => { b.setAttribute('aria-selected', j === i ? 'true' : 'false'); b.tabIndex = j === i ? 0 : -1; });
+  const btn = $('#day-' + i); dayHL.place(btn);
+  if (focus) btn.focus();
+  daysEl.scrollTo({ left: btn.offsetLeft - daysEl.clientWidth / 2 + btn.offsetWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
+  panel.setAttribute('aria-labelledby', btn.id);
+  const h0 = panel.offsetHeight; panel.innerHTML = dayTpl(d); const h1 = panel.offsetHeight;
+  if (h0 && h0 !== h1) anim(panel, [{ height: h0 + 'px' }, { height: h1 + 'px' }], { duration: SOFT.ms, easing: SOFT.easing });
+  anim(panel.firstElementChild, [{ opacity: 0, transform: 'translateX(' + (dir * 26) + 'px)', filter: 'blur(6px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: SOFT.ms, easing: SOFT.easing });
+  const sw = $('#sw-b', panel);
+  if (sw) makeSwitch(sw, on => { const box = $('#dp-bbox'); const h = panel.offsetHeight; box.hidden = !on; const h2 = panel.offsetHeight; anim(panel, [{ height: h + 'px' }, { height: h2 + 'px' }], { duration: SOFT.ms, easing: SOFT.easing }); if (on) anim(box, [{ opacity: 0, transform: 'scale(.97)' }, { opacity: 1, transform: 'none' }], { duration: SNAP.ms, easing: SNAP.easing }); });
+  drawRoutes(d.route);
+  const node = $('.mp-node[data-node="' + d.node + '"]'); if (node) node.classList.add('on');
+  moveMarker(d.node);
+  $('#day-count').textContent = 'Dia ' + (i + 1) + ' de ' + DAYS.length;
+  $('#day-prev').disabled = i === 0; $('#day-next').disabled = i === DAYS.length - 1;
+}
+$('#day-prev').addEventListener('click', () => selectDay(Math.max(0, curDay - 1)));
+$('#day-next').addEventListener('click', () => selectDay(Math.min(DAYS.length - 1, curDay + 1)));
+function onPlan(P) {
+  setAdj(trip.emb);
+  const list = buildDays(trip, P), key = JSON.stringify(list);
+  if (key === daysKey) return;
+  daysKey = key;
+  const keep = DAYS[curDay] ? DAYS[curDay].d : null;
+  DAYS = list; renderDays();
+  const j = DAYS.findIndex(x => x.d === keep);
+  selectDay(j >= 0 ? j : 0);
+  $('#rt-sum').innerHTML = 'De ' + WDL[wdOf(P.leave)] + ', ' + P.leave + '/12, a ' + WDL[wdOf(P.home)] + ', ' + P.home + '/12: ' + DAYS.length + ' dias. <a href="#orcamento">Mudar o trajeto</a>';
+}
+TRIP_HOOKS.push(onPlan);
+onPlan(plan(trip));
+
+/* ---------- clima ---------- */
+const CLIMA = [
+  { c: 'Londrina', max: 31, min: 20, obs: 'De onde vocês saem; média de fonte de terceiros' },
+  { c: 'Curitiba', max: 26.7, min: 16.7, obs: 'Só a porta de saída; chuva à tarde', plano: true },
+  { c: 'Buenos Aires', max: 29.0, min: 18.5, obs: 'Quente e úmido; ficar o mínimo', plano: true },
+  { c: 'Bariloche', max: 20.7, min: 5.9, obs: 'Fresco; manhãs e noites frias', plano: true },
+  { c: 'Villa La Angostura', max: 21, min: 5.6, obs: 'Série curta, valor aproximado' },
+  { c: 'El Calafate', max: 17.9, min: 6.2, obs: 'Vento forte constante' },
+  { c: 'Ushuaia', max: 12.5, min: 4.7, obs: 'Frio de verdade, 17 horas de luz' }
+];
+const pc = t => (t / 35 * 100);
+const n1 = t => t.toLocaleString('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+$('#tc-rows').innerHTML = CLIMA.map(r =>
+  '<div class="tc-row' + (r.plano ? '' : ' alt') + '" data-tip="' + r.c + ': mínima ' + n1(r.min) + ' °C, máxima ' + n1(r.max) + ' °C. ' + r.obs + '.">' +
+  '<div class="tc-name">' + r.c + '<small>' + r.obs + '</small></div>' +
+  '<div class="tc-track"><span class="tc-range" style="left:' + pc(r.min) + '%;width:' + (pc(r.max) - pc(r.min)) + '%"></span>' +
+  '<span class="tc-val" style="right:calc(' + (100 - pc(r.min)) + '% + 12px)">' + n1(r.min) + '</span>' +
+  '<span class="tc-dot min" style="left:' + pc(r.min) + '%"></span><span class="tc-dot max" style="left:' + pc(r.max) + '%"></span>' +
+  '<span class="tc-val" style="left:calc(' + pc(r.max) + '% + 12px)">' + n1(r.max) + ' °C</span></div></div>').join('');
+function playRings() {
+  $$('#rings .rfg').forEach((c, i) => {
+    const C = 2 * Math.PI * 42, p = Number(c.dataset.p);
+    c.style.strokeDasharray = (C * p) + ' ' + C;
+    anim(c, [{ strokeDasharray: '0 ' + C }, { strokeDasharray: (C * p) + ' ' + C }], { duration: 1400, delay: 200 + i * 200, easing: SOFT.easing, fill: 'backwards' });
+  });
+  $$('#rings [data-count]').forEach((el, i) => countUp(el, 200 + i * 200));
+}
+$$('#rings .rfg').forEach(c => { const C = 2 * Math.PI * 42; c.style.strokeDasharray = (C * Number(c.dataset.p)) + ' ' + C; });
+if (reduce || $('#rings').getBoundingClientRect().top < innerHeight) playRings();
+buildAcc($('#acc-nino'), [
+  { t: 'Buenos Aires e Litoral', b: '<p>Chuva acima do normal no centro e no Litoral, tempestades fortes. <strong>Ajuste:</strong> programa coberto na capital (Colón, Ateneo, Museo de Arte Tigre), conexões aéreas com 3 horas de folga ou mais e seguro com cobertura de atraso e cancelamento.</p>' },
+  { t: 'Delta do Paraná, em Tigre', b: '<p>Risco de cheia importante do Paraná; um especialista fala em níveis acima dos de 1983, e o INA pede cautela com alarmismo. Tigre e San Fernando alagam quando chuva forte coincide com sudestada. <strong>Ajuste:</strong> a escola fica em Pacheco, em terra firme; o risco é só para a lancha e o Paseo Victorica. Uma semana antes, ver alturas do rio no INA e alertas do SMN.</p>' },
+  { t: 'Noroeste da Patagônia, em Bariloche', b: '<p>Trimestre outubro–dezembro com chuva acima do normal e temperatura normal; a imprensa local aponta dezembro como o mês de maior risco de temporal e vento. <strong>Ajuste:</strong> capa e calçado impermeável, um dia flexível, e a cabana com hidro vira o programa do dia de chuva.</p>' },
+  { t: 'Ushuaia e Terra do Fogo', b: '<p>Sem projeção específica; ali o efeito do El Niño é fraco. Vento e chuva fina são normais de qualquer forma.</p>' },
+  { t: 'Paraná, na saída', b: '<p>No Sul do Brasil o El Niño costuma trazer mais chuva na primavera e no começo do verão. <strong>Ajuste:</strong> na véspera, ver a previsão do Simepar e os alertas da Defesa Civil do Paraná; quem for de carro ou ônibus até Curitiba sai com folga para chegar antes do voo das 08:50.</p>' }
+], 'nino-');
+
+/* ---------- destino: Bariloche x Ushuaia ---------- */
+const PRIO = [
+  { k: 'frio', n: 'Frio de verdade', w: 'u' }, { k: 'custo', n: 'Custo', w: 'b' }, { k: 'hidro', n: 'Hidro privativa barata', w: 'b' },
+  { k: 'arq', n: 'Arquitetura', w: 'b' }, { k: 'nat', n: 'Natureza bruta', w: 'u' }, { k: 'log', n: 'Logística com a escola', w: 'b' }, { k: 'nino', n: 'Menos efeito do El Niño', w: 'u' }
+];
+const prioOn = new Set(['frio', 'custo', 'hidro', 'arq', 'nat', 'log']);
+const CMP = [
+  { k: 'Frio em dezembro', p: 'frio', b: '5,9 a 20,7 °C: fresco de montanha', u: '4,7 a 12,5 °C: frio de verdade, 17 horas de luz' },
+  { k: 'Custo na viagem de 8 dias', p: 'custo', b: 'É a base do orçamento', u: 'R$ 1.500 a 2.500 a mais' },
+  { k: 'Voo desde Buenos Aires', p: 'custo', b: 'JetSMART, R$ 613 por pessoa', u: 'JetSMART, R$ 843 a 992 por pessoa' },
+  { k: 'Cabana com hidro privativa', p: 'hidro', b: 'A partir de USD 100 a 140', u: 'Acima de USD 180; hotéis com spa de USD 140 a 190' },
+  { k: 'Day spa', p: null, b: 'Acqua Spa ARS 70.000; Huinid ARS 117.500 com massagem', u: 'Arakur, cerca de USD 55 (preço de 2024)' },
+  { k: 'Arquitetura', p: 'arq', b: 'Bustillo: Centro Cívico, Catedral, Llao Llao, Capilla San Eduardo', u: 'Modesta: Museo Marítimo y del Presidio' },
+  { k: 'Natureza', p: 'nat', b: 'Lagos, Cerro Campanario, Tronador', u: 'Parque Nacional Tierra del Fuego, Canal Beagle, glaciar Martial' },
+  { k: 'Visita à escola', p: 'log', b: 'Voo curto saindo de Aeroparque', u: 'O voo direto da GOL a Ushuaia não para em Buenos Aires: bilhetes separados' },
+  { k: 'El Niño', p: 'nino', b: 'Chuva acima do normal; dezembro com risco de temporal', u: 'Efeito fraco; vento e chuva fina normais' },
+  { k: 'Segurança', p: null, b: 'Furtos caíram 27% em 2026; nada visível no carro', u: 'Muito segura; o risco é clima e trilha' }
+];
+const prioEl = $('#prio');
+prioEl.innerHTML = PRIO.map(p => '<button class="chip" type="button" aria-pressed="' + prioOn.has(p.k) + '" data-k="' + p.k + '">' + p.n + '</button>').join('');
+$('#cmp').innerHTML = '<div class="cmp-row head"><span class="cmp-k">Critério</span><span>Bariloche</span><span>Ushuaia</span></div>' +
+  CMP.map(r => '<div class="cmp-row"><span class="cmp-k">' + r.k + '</span><span class="cmp-c" data-p="' + (r.p || '') + '" data-side="b">' + r.b + '</span><span class="cmp-c" data-p="' + (r.p || '') + '" data-side="u">' + r.u + '</span></div>').join('');
+function renderCmp() {
+  let b = 0, u = 0;
+  PRIO.forEach(p => { if (prioOn.has(p.k)) { if (p.w === 'b') b++; else u++; } });
+  slide($('#pts-b'), String(b)); slide($('#pts-u'), String(u));
+  const mx = Math.max(1, prioOn.size);
+  $('#bar-b').style.width = (b / mx * 100) + '%'; $('#bar-u').style.width = (u / mx * 100) + '%';
+  $('#sc-b').classList.toggle('lead', b > u); $('#sc-u').classList.toggle('lead', u > b);
+  $('#cmp-verdict').textContent = !prioOn.size ? 'Marquem ao menos uma prioridade.' : b > u ? 'Com essas prioridades, Bariloche.' : u > b ? 'Com essas prioridades, Ushuaia, aceitando gastar R$ 1.500 a 2.500 a mais.' : 'Empate. O desempate é o custo, e Bariloche sai mais barata.';
+  $$('.cmp-c').forEach(c => { const p = PRIO.find(x => x.k === c.dataset.p); c.classList.toggle('win', !!p && prioOn.has(p.k) && p.w === c.dataset.side); });
+}
+prioEl.addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  const k = b.dataset.k; if (prioOn.has(k)) prioOn.delete(k); else prioOn.add(k);
+  b.setAttribute('aria-pressed', prioOn.has(k) ? 'true' : 'false');
+  anim(b, [{ transform: 'scale(.9)' }, { transform: 'scale(1)' }], { duration: SNAP.ms, easing: SNAP.easing });
+  renderCmp();
+});
+renderCmp();
+
+/* ---------- hospedagem ---------- */
+
+const HOTEIS = [
+  { reg: 'brc', n: 'Cabañas Puerto Pireo', tipo: 'Bungalows à beira do Nahuel Huapi, ao lado do Cerro Campanario (cerca de 17 km do centro)', h: 'priv', ht: 'Jacuzzi privativa e lareira', usd: null, nota: 'cerca de 9,3/10 no Booking', why: 'Isolado e silencioso, café caseiro incluso, piscina aquecida e banho turco.', care: 'Exige táxi ou carro.' },
+  { reg: 'brc', n: 'Terrazas del López, Cabaña 2', tipo: 'Cabana no Airbnb, no Cerro López', h: 'priv', ht: 'Jacuzzi privativa', usd: null, nota: '4,92/5 (24 avaliações)', why: 'Montanha e lago, pouco movimento.', care: 'Pedir cotação para 18 a 22/12.' },
+  { reg: 'brc', n: 'Huinid Bustillo Hotel & Spa', tipo: 'Hotel com spa, Av. Bustillo km 2,6', h: 'comp', ht: 'Spa com jacuzzi, piscina climatizada, sauna', usd: 110, nota: '9,0/10 (1.135 avaliações)', why: 'O spa é o mesmo do day pass; boa reserva se as cabanas lotarem.', care: 'Hotel grande: menos privacidade.' },
+  { reg: 'brc', n: 'Boutique Hotel & Spa Bosque del Nahuel', tipo: 'Chalés alpinos com spa próprio', h: 'conf', ht: 'Hot tub listada; privacidade a confirmar', usd: 140, nota: '9,1/10 (292 avaliações)', why: 'Estilo de montanha, spa próprio.', care: 'Confirmar se a banheira é da unidade.' },
+  { reg: 'vla', n: 'Cabañas La Estancia', tipo: 'Complexo de cabanas a 2,7 km do centro', h: 'conf', ht: 'Privativa em algumas unidades; confirmar a categoria', usd: 112, nota: '8,9/10 (201 avaliações)', why: 'Villa La Angostura é mais silenciosa que Bariloche.', care: 'Fica a 80 km de Bariloche: transporte mais caro. Preço visto em outubro.' },
+  { reg: 'vla', n: 'Tillka, Cabaña Cielo', tipo: 'Casa de montanha no Airbnb, em Puerto Manzano', h: 'priv', ht: 'Hidro dupla na suíte', usd: null, nota: '4,91/5 (23 avaliações)', why: 'Casa inteira, hidro dentro da suíte.', care: 'Pedir cotação.' },
+  { reg: 'vla', n: 'El Cóndor Pasa', tipo: 'Cabanas no Cerro Bayo', h: 'priv', ht: 'Jacuzzi dupla privativa, piso radiante', usd: null, nota: 'sem nota pública', why: 'Piso radiante e jacuzzi dupla: conforto de inverno no verão.', care: 'Sem avaliações públicas para comparar.' },
+  { reg: 'ush', n: 'Cumbres del Martial', tipo: 'Cabanas com vista do Canal Beagle', h: 'conf', ht: 'Uma das cabanas tem jacuzzi privativa', usd: null, nota: 'a cotar', why: 'Vista do Beagle, perto do glaciar Martial.', care: 'Só uma unidade com jacuzzi: reservar cedo.' },
+  { reg: 'ush', n: 'Cilene del Faro Suites & Spa', tipo: 'Hotel com spa', h: 'comp', ht: 'Spa do hotel', usd: 144, nota: '9,1/10', why: 'Spa e boa nota, no frio de verdade.', care: 'Spa compartilhado.' },
+  { reg: 'ush', n: 'Patagonia Villa', tipo: 'Hospedagem em Ushuaia', h: 'none', ht: 'Sem hidro informada', usd: 137, nota: '8,8/10', why: 'Alternativa com boa nota.', care: 'Sem hidro.' },
+  { reg: 'ba', n: 'Hotel 3 estrelas ou apart em Recoleta', tipo: 'Nomes não pesquisados; filtrar no Booking por nota 8,5+ e "quarto silencioso" nas avaliações', h: 'none', ht: 'Hidro não é o foco aqui', usd: '50–75', nota: '2 a 3 noites', why: 'Recoleta fica a pé do Colón, do Ateneo e do cemitério, e é mais barata que Puerto Madero.', care: 'Evitar ruas com bares; Palermo Soho é barulhento à noite.' },
+  { reg: 'cwb', n: 'Novotel Curitiba Batel', tipo: 'Hotel de rede no Batel, bairro central de Curitiba', h: 'conf', ht: 'Hidro só em algumas suítes', usd: null, nota: 'nota não conferida', why: 'Na cidade, perto do Palácio Avenida; serve para a noite antes do voo das 08:50.', care: 'Pedir a suíte com hidro na reserva. Preços vistos são de guias antigos.' },
+  { reg: 'cwb', n: 'Primo Cabana', tipo: 'Cabana com hidro, na região de Curitiba', h: 'priv', ht: 'Hidro privativa', usd: null, nota: 'nota não conferida', why: 'Hidro na própria cabana, sem dividir spa.', care: 'Conferir a distância até o aeroporto Afonso Pena antes de reservar.' },
+  { reg: 'cwb', n: 'Chalet Sossego', tipo: 'Chalé em Quatro Barras, vizinha de Curitiba, no começo da Serra do Mar', h: 'priv', ht: 'Hidro privativa', usd: null, nota: 'nota não conferida', why: 'Mata e silêncio a meia hora da cidade.', care: 'Fora da cidade: carro ou Uber até o aeroporto.' },
+  { reg: 'cwb', n: 'Vila do Porto', tipo: 'Pousada em Morretes, cidade histórica ao pé da Serra do Mar', h: 'priv', ht: 'Hidro privativa', usd: null, nota: 'nota não conferida', why: 'Morretes é o passeio mais bonito saindo de Curitiba.', care: 'Longe do aeroporto: não serve para a noite antes do voo. E é mais quente que Curitiba.' }
+];
+const HTAG = { priv: ['priv', 'Hidro privativa'], conf: ['conf', 'Hidro a confirmar'], comp: ['', 'Spa compartilhado'], none: ['', 'Sem hidro'] };
+const REGN = { brc: 'Bariloche', vla: 'Villa La Angostura', ush: 'Ushuaia', ba: 'Buenos Aires', cwb: 'Curitiba' };
+const hGrid = $('#h-grid');
+hGrid.innerHTML = HOTEIS.map((x, i) => {
+  const price = x.usd == null ? '<b>A cotar</b><small>pedir para as datas</small>' : typeof x.usd === 'string' ? '<b>USD ' + x.usd + '</b><small>R$ 250–375 por noite</small>' : '<b>USD ' + x.usd + '</b><small>≈ R$ ' + fmt(x.usd * USD) + ' por noite</small>';
+  return '<div class="hotel" data-reg="' + x.reg + '" data-h="' + x.h + '"><div class="tilt"><div class="flip">' +
+    '<div class="face front"><div class="hrow"><span class="tag">' + REGN[x.reg] + '</span><span class="tag ' + HTAG[x.h][0] + '">' + HTAG[x.h][1] + '</span></div>' +
+    '<h3>' + x.n + '</h3><p class="htype">' + x.tipo + '</p><p class="htype"><strong>' + x.ht + '</strong> · ' + x.nota + '</p>' +
+    '<button class="flip-btn" type="button" aria-expanded="false" aria-controls="hb-' + i + '">Por que entrou</button>' +
+    '<div class="hprice">' + price + '</div></div>' +
+    '<div class="face back" id="hb-' + i + '" aria-hidden="true"><p class="sub">Por que entrou</p><p>' + x.why + '</p><p class="sub" style="margin-top:6px">Cuidado</p><p class="htype">' + x.care + '</p>' +
+    '<button class="flip-btn" type="button" style="margin-top:auto" tabindex="-1">Voltar</button></div>' +
+    '</div></div></div>';
+}).join('') + '<p class="h-empty" hidden id="h-empty">Nenhuma opção desta região tem hidro privativa confirmada. Desliguem o filtro para ver as que precisam de confirmação.</p>';
+$$('.hotel .tilt', hGrid).forEach(t => tiltOn(t, 6));
+hGrid.addEventListener('click', e => {
+  const b = e.target.closest('.flip-btn'); if (!b) return;
+  const flip = b.closest('.flip'); const on = !flip.classList.contains('is-flipped');
+  flip.classList.toggle('is-flipped', on);
+  const front = $('.front', flip), back = $('.back', flip);
+  front.setAttribute('aria-hidden', on ? 'true' : 'false'); back.setAttribute('aria-hidden', on ? 'false' : 'true');
+  $('.flip-btn', front).setAttribute('aria-expanded', on ? 'true' : 'false');
+  $('.flip-btn', front).tabIndex = on ? -1 : 0; $('.flip-btn', back).tabIndex = on ? 0 : -1;
+  setTimeout(() => (on ? $('.flip-btn', back) : $('.flip-btn', front)).focus({ preventScroll: true }), reduce ? 0 : 300);
+});
+let hReg = 'brc', hOnly = false;
+function filterHotels(first) {
+  const cards = $$('.hotel', hGrid);
+  const before = new Map(cards.map(c => [c, c.hidden ? null : c.getBoundingClientRect()]));
+  let shown = 0;
+  cards.forEach(c => { const ok = c.dataset.reg === hReg && (!hOnly || c.dataset.h === 'priv'); c.hidden = !ok; if (ok) shown++; });
+  $('#h-empty').hidden = shown > 0;
+  if (first) return;
+  cards.forEach((c, i) => {
+    if (c.hidden) return;
+    const f = before.get(c); const l = c.getBoundingClientRect();
+    if (!f) anim(c, [{ opacity: 0, transform: 'translateY(16px) scale(.96)', filter: 'blur(4px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: SOFT.ms, delay: i % 4 * 50, easing: SOFT.easing, fill: 'backwards' });
+    else if (f.left !== l.left || f.top !== l.top) anim(c, [{ transform: 'translate(' + (f.left - l.left) + 'px,' + (f.top - l.top) + 'px)' }, { transform: 'none' }], { duration: SOFT.ms, easing: SOFT.easing });
+  });
+}
+radioGroup($('#seg-reg'), v => { hReg = v; filterHotels(); });
+makeSwitch($('#sw-hidro'), on => { hOnly = on; filterHotels(); });
+filterHotels(true);
+
+/* ---------- calendário de dezembro ---------- */
+const LAYERS = [
+  { k: 'viagem', n: 'Trajeto montado', c: 'var(--lake)' },
+  { k: 'escola', n: 'Aulas no Jardín', c: 'var(--pine)' },
+  { k: 'musica', n: 'Música clássica', c: 'var(--s4)' },
+  { k: 'prazo', n: 'Prazos', c: 'var(--s2)' },
+  { k: 'caro', n: 'Preço alto', c: 'var(--heat)' },
+  { k: 'fechado', n: 'Colón sem visita guiada', c: 'var(--muted)' }
+];
+const layerOn = new Set(LAYERS.map(l => l.k));
+/* dias da viagem: saem do roteiro (DAYS), que sai do montador */
+let TRIP = {}, WIN = [15, 22], tripKey = '';
+function syncTrip() {
+  const o = {}; DAYS.forEach(x => { o[x.d] = x.t; });
+  const k = JSON.stringify(o); if (k === tripKey) return false;
+  tripKey = k; TRIP = o; WIN = [DAYS[0].d, DAYS[DAYS.length - 1].d]; return true;
+}
+syncTrip();
+function events(m, d) {
+  const ev = []; const wd = new Date(m === 0 ? 2027 : 2026, m === 0 ? 0 : 11, d).getDay();
+  if (m === 0) {
+    ev.push({ k: 'caro', t: 'Voos de volta entre 30/12 e 02/01 custam 2 a 3 vezes mais; hospedagem cara na virada' });
+    if (d === 1) ev.push({ k: 'fechado', t: 'Colón sem visita guiada' });
+    return ev;
+  }
+  if (TRIP[d]) ev.push({ k: 'viagem', t: TRIP[d] });
+  if (d <= 22 && wd > 0 && wd < 6) ev.push({ k: 'escola', t: d === 22 ? 'Último dia de aula na província de Buenos Aires' : (d === 16 || d === 17) ? 'Melhor dia para a visita, de manhã' : d >= 18 ? 'Semana de atos de fim de ano (costuma)' : 'Dia letivo' });
+  if (d === 4 || d === 13) ev.push({ k: 'musica', t: 'Filarmónica de Buenos Aires (fora da janela da viagem)' });
+  if (d === 16) ev.push({ k: 'musica', t: 'Camerata Antiqua de Curitiba no Teatro Positivo (a confirmar)' });
+  if (d >= 18 && d <= 20) ev.push({ k: 'musica', t: 'Natal do Palácio Avenida em Curitiba, coral nas janelas às 20h15' });
+  if (d >= 17 && d <= 30) ev.push({ k: 'musica', t: 'O Quebra-Nozes no Teatro Colón' });
+  if (d === 19 || d === 20 || d === 22) ev.push({ k: 'musica', t: 'Un sueño navideño, no Colón' });
+  if (d === 1) ev.push({ k: 'prazo', t: 'Até hoje: seguro-viagem, hotel em Buenos Aires, Las Morillas e day spa; checar a gala gratuita do Colón' });
+  if (d >= 8 && d <= 10) ev.push({ k: 'prazo', t: 'Ver alturas do Paraná (INA) e alertas do SMN; confirmar a visita à escola e o horário do MAT' });
+  if (d >= 24) ev.push({ k: 'caro', t: d >= 30 ? 'Voos de volta custam 2 a 3 vezes mais' : 'Hospedagem em Bariloche mais cara a partir do dia 24' });
+  if (d === 24 || d === 25 || d === 31) ev.push({ k: 'fechado', t: 'Colón sem visita guiada' });
+  return ev;
+}
+const WD = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+const cal = $('#cal'); const layersEl = $('#layers');
+layersEl.innerHTML = LAYERS.map(l => '<button class="chip" type="button" aria-pressed="true" data-k="' + l.k + '"><i style="background:' + l.c + '"></i>' + l.n + '</button>').join('');
+let calSel = { m: 11, d: 16 };
+function renderCal() {
+  const cells = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'].map(x => '<span class="cal-h" aria-hidden="true">' + x + '</span>');
+  cells.push('<span></span>', '<span></span>');
+  const days = []; for (let d = 1; d <= 31; d++) days.push({ m: 11, d }); days.push({ m: 0, d: 1 }, { m: 0, d: 2 });
+  days.forEach(x => {
+    const ev = events(x.m, x.d).filter(e => layerOn.has(e.k));
+    const kinds = [...new Set(ev.map(e => e.k))];
+    const jan = x.m === 0; const win = !jan && x.d >= WIN[0] && x.d <= WIN[1];
+    const label = x.d + (jan ? ' de janeiro' : ' de dezembro') + (ev.length ? ': ' + ev.map(e => e.t).join('; ') : '');
+    cells.push('<button type="button" class="cal-d' + (win ? ' janela' : '') + (jan ? ' jan' : '') + (calSel.m === x.m && calSel.d === x.d ? ' sel' : '') + '" data-m="' + x.m + '" data-d="' + x.d + '" aria-label="' + label.replace(/"/g, '') + '">' +
+      '<span class="n">' + x.d + (jan ? '<em>jan</em>' : '') + '</span><span class="bars">' + kinds.map(k => '<i style="background:' + LAYERS.find(l => l.k === k).c + '"></i>').join('') + '</span></button>');
+  });
+  cal.innerHTML = cells.join('');
+}
+function renderCalDetail(animate) {
+  const { m, d } = calSel; const date = new Date(m === 0 ? 2027 : 2026, m === 0 ? 0 : 11, d);
+  const ev = events(m, d);
+  const el = $('#cal-detail');
+  el.innerHTML = '<p class="sub">' + (m === 0 ? 'Janeiro de 2027' : 'Dezembro de 2026') + '</p><h3>' + WD[date.getDay()].replace(/^./, c => c.toUpperCase()) + ', ' + d + (m === 0 ? ' de janeiro' : ' de dezembro') + '</h3>' +
+    (ev.length ? '<ul class="cal-ev">' + ev.map(e => '<li><i style="background:' + LAYERS.find(l => l.k === e.k).c + '"></i><span>' + e.t + '</span></li>').join('') + '</ul>' : '<p class="note" style="margin-top:12px">Nada marcado neste dia.</p>') +
+    (m === 0 || d < WIN[0] || d > WIN[1] ? '<p class="note" style="margin-top:14px">Fora do trajeto montado, de ' + WIN[0] + ' a ' + WIN[1] + '/12. <a href="#orcamento">Mudar o trajeto</a></p>' : '');
+  if (animate) anim(el, [{ opacity: 0, transform: 'translateY(8px)', filter: 'blur(4px)' }, { opacity: 1, transform: 'none', filter: 'blur(0)' }], { duration: SOFT.ms, easing: SOFT.easing });
+}
+cal.addEventListener('click', e => {
+  const b = e.target.closest('.cal-d'); if (!b) return;
+  calSel = { m: Number(b.dataset.m), d: Number(b.dataset.d) };
+  $$('.cal-d', cal).forEach(x => x.classList.toggle('sel', x === b));
+  renderCalDetail(true);
+});
+layersEl.addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  const k = b.dataset.k; if (layerOn.has(k)) layerOn.delete(k); else layerOn.add(k);
+  b.setAttribute('aria-pressed', layerOn.has(k) ? 'true' : 'false');
+  renderCal();
+  $$('.cal-d .bars i', cal).forEach((i, n) => anim(i, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: 500, delay: n * 4, easing: SOFT.easing, fill: 'backwards' }));
+});
+renderCal(); renderCalDetail(false);
+TRIP_HOOKS.push(() => { if (syncTrip()) { renderCal(); renderCalDetail(false); } });
+
+/* ---------- listas com destaque ao passar o cursor ---------- */
+hoverHighlight($('#arch'), 'li'); hoverHighlight($('#food'), 'li');
+
+/* ---------- conversor ---------- */
+const RATE = { brl: 4.99, ars: 1535 };
+const conv = { cur: 'ARS', val: 34000, iof: true };
+const QUICK = [
+  ['Visita ao Colón', 34000, 'ARS'], ['Cemitério da Recoleta', 19000, 'ARS'], ['Palacio Barolo', 38000, 'ARS'], ['Acqua Spa, 4 h', 70000, 'ARS'],
+  ['Huinid Spa com massagem', 117500, 'ARS'], ['Uber até Pacheco (máx.)', 40000, 'ARS'], ['Cabana com hidro, noite', 110, 'USD'], ['Táxi aeroporto Bariloche', 20, 'USD'], ['Seguro 7 dias', 198, 'BRL']
+];
+$('#quick').innerHTML = QUICK.map((q, i) => '<button class="chip" type="button" data-i="' + i + '">' + q[0] + ' · ' + (q[2] === 'BRL' ? 'R$ ' : q[2] + ' ') + fmt(q[1]) + '</button>').join('');
+const curGroup = radioGroup($('#seg-cur'), v => { conv.cur = v; renderConv(); });
+function renderConv() {
+  const v = conv.val > 0 ? conv.val : 0;
+  const usd = conv.cur === 'USD' ? v : conv.cur === 'ARS' ? v / RATE.ars : v / RATE.brl;
+  slide($('#o-ars'), fmt(usd * RATE.ars)); slide($('#o-usd'), fmt2(usd)); slide($('#o-brl'), fmt2(usd * RATE.brl));
+  const showIof = conv.cur !== 'BRL' && conv.iof;
+  $('#o-iof-row').hidden = !showIof;
+  if (showIof) slide($('#o-iof'), fmt2(usd * RATE.brl * 1.0338));
+  $$('.o-row[data-c]').forEach(r => r.classList.toggle('src', r.dataset.c === conv.cur));
+}
+$('#amount').addEventListener('input', e => { conv.val = parseFloat(e.target.value) || 0; renderConv(); });
+makeSwitch($('#sw-iof'), on => { conv.iof = on; renderConv(); });
+$('#quick').addEventListener('click', e => {
+  const b = e.target.closest('.chip'); if (!b) return;
+  const q = QUICK[Number(b.dataset.i)]; conv.val = q[1]; $('#amount').value = q[1];
+  curGroup.set(q[2], true); conv.cur = q[2]; renderConv();
+  anim($('#amount'), [{ color: 'var(--lake)' }, { color: 'var(--ink)' }], { duration: 700 });
+});
+renderConv();
+
+/* ---------- prazos ---------- */
+const TODO = [
+  { g: 'Esta semana', when: null, items: [['t1', 'Comprar o voo direto Curitiba–Aeroparque com ida até o dia 15, numa terça ou quarta'], ['t2', 'Comprar o trecho Buenos Aires–Bariloche'], ['t3', 'Reservar a cabana em Bariloche com cancelamento grátis (Puerto Pireo e Terrazas del López; Huinid como reserva)']] },
+  { g: 'Até o início de novembro', when: [2026, 10, 1], items: [['t4', 'Escrever para o Jardín Fabulinus propondo 16 ou 17/12 de manhã']] },
+  { g: 'Quando abrir a venda', when: null, items: [['t5', 'Comprar O Quebra-Nozes para o dia 17/12']] },
+  { g: 'Até 1º de dezembro', when: [2026, 11, 1], items: [['t6', 'Seguro-viagem com cobertura de atraso e cancelamento'], ['t7', 'Hotel em Buenos Aires, em Recoleta'], ['t13', 'Hotel em Curitiba para a noite antes do voo das 08:50 (Novotel Batel, pedindo a suíte com hidro)'],['t8', 'Reservar Las Morillas e o day spa'], ['t9', 'Ver se a gala gratuita do Colón foi anunciada']] },
+  { g: 'De 8 a 10 de dezembro', when: [2026, 11, 8], items: [['t10', 'Ver alturas do Paraná (INA) e alertas do SMN para Tigre e Bariloche'], ['t11', 'Confirmar a visita à escola e o horário do MAT']] },
+  { g: 'Na chegada', when: null, items: [['t12', 'Comprar o cartão SUBE no quiosque de Aeroparque']] }
+];
+const done = new Set(store.get('rumo-frio-prazos-v1', []));
+const todoEl = $('#todo');
+todoEl.innerHTML = TODO.map(g => {
+  let w = '';
+  if (g.when) { const n = daysUntil(g.when[0], g.when[1], g.when[2]); w = n > 1 ? 'em ' + n + ' dias' : n === 1 ? 'amanhã' : n === 0 ? 'hoje' : 'já passou'; }
+  return '<div class="tg"><div class="tg-h"><b>' + g.g + '</b><span>' + w + '</span></div>' +
+    g.items.map(([id, t]) => '<div class="td' + (done.has(id) ? ' done' : '') + '" data-id="' + id + '"><button class="cb" type="button" role="checkbox" aria-checked="' + done.has(id) + '" aria-labelledby="l-' + id + '"><svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="td-l" id="l-' + id + '">' + t + '</span></div>').join('') + '</div>';
+}).join('');
+const TOTAL = TODO.reduce((a, g) => a + g.items.length, 0);
+function renderTodo() {
+  $('#tprog').style.transform = 'scaleX(' + (done.size / TOTAL) + ')';
+  $('#tcount').textContent = done.size + ' de ' + TOTAL + ' feitos';
+}
+todoEl.addEventListener('click', e => {
+  const row = e.target.closest('.td'); if (!row) return;
+  const id = row.dataset.id; const on = !done.has(id);
+  if (on) done.add(id); else done.delete(id);
+  row.classList.toggle('done', on); $('.cb', row).setAttribute('aria-checked', on ? 'true' : 'false');
+  if (on) anim(row, [{ transform: 'translateX(0)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }], { duration: 420, easing: SNAP.easing });
+  store.set('rumo-frio-prazos-v1', [...done]); renderTodo();
+});
+renderTodo();
+
+/* ---------- fontes ---------- */
+buildAcc($('#acc-src'), [
+  { t: 'Escola e calendário', b: 'micole.net (ficha do jardim), ifts1.com.ar, actualidadtigresanfernando.com (proposta pedagógica), argentino.com.ar (Colegio Antonio Berni, Buenos Aires 550), chequeado.com e baenegocios.com (calendário escolar 2026 da província).' },
+  { t: 'El Niño e clima', b: 'cpc.ncep.noaa.gov (ENSO), iri.columbia.edu, SMN via baenegocios.com, infobae.com, lanacion.com.ar e lagaceta.com.ar, anbariloche.com.ar, tiempoar.com.ar e perfil.com (cheia do Paraná), canal26.com (alerta Tigre e San Fernando), Wikipedia (normais 1991–2020).' },
+  { t: 'Câmbio', b: 'open.er-api.com (12/10/2026), dolarhoy.com (13/10/2026), cronista.com (10/10/2026).' },
+  { t: 'Passagens', b: 'mundi.com.br e momondo.com.br (ofertas de 08 a 13/10/2026), cronista.com (tarifas Bariloche, 19/08/2026), brasilturis.com.br (voos GOL a Ushuaia e El Calafate), checkmybus.com e centraldepasajes.com.ar (ônibus).' },
+  { t: 'Curitiba', b: 'INMET (normais 1991–2020 de Curitiba); Londrina, média de fonte de terceiros; agregadores de passagens (Curitiba–Aeroparque, 14 e 16/12); buscas de 13/10/2026 sobre o Natal do Palácio Avenida, a Camerata Antiqua, a Ópera de Arame, o MON e os hotéis com hidro (guias de 2022 ou sem data). Para a véspera: Simepar e Defesa Civil do Paraná.' },
+  { t: 'Ônibus', b: 'BusOn, Busbud, DeÔnibus, Kayak e o blog Viaja que Passa: horários e preços dos ônibus de Londrina até Curitiba e São Paulo, e da JBL até Buenos Aires.' },
+  { t: 'Hospedagem e spa', b: 'booking.com, kayak.com, airbnb.com, spa.huinid.com, nidodelcondor.com.ar, diariodelhotelero.com (Arakur), welcomeargentina.com.' },
+  { t: 'Música e arquitetura', b: 'teatrocolon.org.ar (Temporada 2026 e visitas guiadas), semanamusical.com.ar, buenosaires.gob.ar, turismo.buenosaires.gob.ar, airedesantafe.com.ar (Barolo), iprofesional.com (Recoleta), turismoushuaia.com.' },
+  { t: 'Comida, segurança e dinheiro', b: 'numbeo.com (Buenos Aires 07/10/2026; Bariloche 05/07/2026), dicasargentina.com, cronista.com (Guia Michelin 2026), travel.state.gov, anbariloche.com.ar (crimes, 30/09/2026), brasilturis.com.br (Pix na Argentina), fuiserviajante.com e viagensecaminhos.com (seguro obrigatório).' }
+], 'src-');
+})();
+</script>
+</body>
+</html>
